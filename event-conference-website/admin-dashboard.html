@@ -25,8 +25,14 @@
 
     <div class="flex h-screen overflow-hidden">
 
+        <!-- Mobile Backdrop -->
+        <div id="sidebar-backdrop"
+            class="fixed inset-0 z-40 bg-gray-900/50 hidden md:hidden glass-panel backdrop-blur-sm transition-opacity">
+        </div>
+
         <!-- Sidebar -->
-        <aside class="w-64 bg-gray-900 text-gray-400 flex flex-col hidden md:flex">
+        <aside id="sidebar"
+            class="w-64 bg-gray-900 text-gray-400 flex flex-col hidden md:flex fixed md:relative z-50 h-full transition-transform transform -translate-x-full md:translate-x-0">
             <div class="h-16 flex items-center px-6 bg-gray-800">
                 <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white font-bold mr-3">TS
                 </div>
@@ -76,7 +82,9 @@
             <!-- Top Header -->
             <header class="h-16 bg-white shadow-sm flex items-center justify-between px-6 z-10">
                 <div class="flex items-center gap-4">
-                    <button class="md:hidden text-gray-600"><i class="fas fa-bars text-xl"></i></button>
+                    <button id="sidebar-toggle" class="md:hidden text-gray-600 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
                     <h2 class="text-xl font-bold text-gray-800">Dashboard Overview</h2>
                 </div>
 
@@ -299,6 +307,30 @@
 
     <script src="js/rtl-toggle.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        // Dashboard Sidebar Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebar = document.getElementById('sidebar');
+            const backdrop = document.getElementById('sidebar-backdrop');
+            const toggleBtn = document.getElementById('sidebar-toggle');
+
+            if (sidebar && toggleBtn) {
+                toggleBtn.addEventListener('click', () => {
+                    sidebar.classList.toggle('hidden');
+                    sidebar.classList.toggle('-translate-x-full');
+                    if (backdrop) backdrop.classList.toggle('hidden');
+                });
+
+                if (backdrop) {
+                    backdrop.addEventListener('click', () => {
+                        sidebar.classList.add('hidden');
+                        sidebar.classList.add('-translate-x-full');
+                        backdrop.classList.add('hidden');
+                    });
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
