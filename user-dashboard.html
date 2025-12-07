@@ -34,7 +34,7 @@
         <aside id="sidebar"
             class="w-64 bg-gray-900 text-gray-400 flex flex-col hidden md:flex fixed md:relative z-50 h-full transition-transform transform -translate-x-full md:translate-x-0">
             <div class="h-16 flex items-center px-6 bg-gray-800">
-                <div class="w-8 h-8 bg-purple-600 rounded flex items-center justify-center text-white font-bold mr-3">TS
+                <div class="w-8 h-8 bg-purple-600 rounded flex items-center justify-center text-white font-bold me-3">TS
                 </div>
                 <span class="text-white font-bold text-lg">TechSummit</span>
             </div>
@@ -82,19 +82,20 @@
 
                 <div class="flex items-center gap-6">
                     <div class="relative hidden sm:block">
-                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <i class="fas fa-search absolute start-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                         <input type="text" placeholder="Search sessions..."
                             class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm">
                     </div>
 
-                    <button id="rtl-toggle" class="text-gray-500 hover:text-purple-600 font-medium transition-colors"
+                    <button id="rtl-toggle" onclick="toggleRTL(event)"
+                        class="text-gray-500 hover:text-purple-600 font-medium transition-colors"
                         aria-label="Switch Direction">
                         RTL
                     </button>
 
                     <button class="relative text-gray-500 hover:text-purple-600">
                         <i class="fas fa-bell text-xl"></i>
-                        <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                        <span class="absolute -top-1 -end-1 w-2 h-2 bg-red-500 rounded-full"></span>
                     </button>
 
                     <div class="flex items-center gap-3">
@@ -156,11 +157,11 @@
                     <div class="lg:col-span-2 space-y-6">
                         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                             <h3 class="font-bold text-gray-900 mb-6">Your Schedule (Day 1)</h3>
-                            <div class="space-y-6 relative border-l-2 border-gray-200 ml-3 pl-6">
+                            <div class="space-y-6 relative border-s-2 border-gray-200 ms-3 ps-6">
 
                                 <div class="relative">
                                     <span
-                                        class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-purple-600 ring-4 ring-white"></span>
+                                        class="absolute -start-[31px] top-1 w-4 h-4 rounded-full bg-purple-600 ring-4 ring-white"></span>
                                     <span class="text-xs font-bold text-purple-600 uppercase tracking-wide">09:00
                                         AM</span>
                                     <h4 class="font-bold text-gray-900 mt-1">Opening Keynote</h4>
@@ -173,7 +174,7 @@
 
                                 <div class="relative">
                                     <span
-                                        class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gray-300 ring-4 ring-white"></span>
+                                        class="absolute -start-[31px] top-1 w-4 h-4 rounded-full bg-gray-300 ring-4 ring-white"></span>
                                     <span class="text-xs font-bold text-gray-500 uppercase tracking-wide">10:30
                                         AM</span>
                                     <h4 class="font-bold text-gray-900 mt-1">Building Scalable Microservices</h4>
@@ -186,7 +187,7 @@
 
                                 <div class="relative">
                                     <span
-                                        class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gray-300 ring-4 ring-white"></span>
+                                        class="absolute -start-[31px] top-1 w-4 h-4 rounded-full bg-gray-300 ring-4 ring-white"></span>
                                     <span class="text-xs font-bold text-gray-500 uppercase tracking-wide">12:00
                                         PM</span>
                                     <h4 class="font-bold text-gray-900 mt-1">Networking Lunch</h4>
@@ -207,7 +208,7 @@
                         <div
                             class="bg-gradient-to-br from-purple-600 to-indigo-700 rounded-xl p-6 text-white shadow-lg overflow-hidden relative">
                             <div
-                                class="absolute top-0 right-0 p-32 bg-white/10 rounded-full blur-2xl transform translate-x-10 -translate-y-10">
+                                class="absolute top-0 end-0 p-32 bg-white/10 rounded-full blur-2xl transform translate-x-10 -translate-y-10">
                             </div>
                             <div class="relative z-10">
                                 <div class="flex justify-between items-start mb-8">

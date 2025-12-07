@@ -7,30 +7,44 @@ document.addEventListener('DOMContentLoaded', () => {
     initRTL();
 });
 
-function initRTL() {
-    const toggleBtn = document.getElementById('rtl-toggle');
+// Expose global function for inline onclick handlers
+window.toggleRTL = function (e) {
+    if (e) {
+        e.preventDefault();
+    }
     const html = document.documentElement;
+    const currentDir = html.getAttribute('dir');
+    const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
+    setDirection(newDir);
+};
 
+function initRTL() {
     // Check saved preference
     const savedDir = localStorage.getItem('dir') || 'ltr';
     setDirection(savedDir);
 
+    // We can still try to attach listeners for progressive enhancement,
+    // but the inline onclick will be the primary/fallback method.
+    const toggleBtn = document.getElementById('rtl-toggle');
+    const mobileToggleBtn = document.getElementById('rtl-toggle-mobile');
+
     if (toggleBtn) {
-        toggleBtn.addEventListener('click', () => {
-            const currentDir = html.getAttribute('dir');
-            const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
-            setDirection(newDir);
-        });
+        toggleBtn.onclick = window.toggleRTL;
+    }
+    if (mobileToggleBtn) {
+        mobileToggleBtn.onclick = window.toggleRTL;
     }
 }
 
 function setDirection(dir) {
     const html = document.documentElement;
     const toggleBtn = document.getElementById('rtl-toggle');
+    const mobileToggleBtn = document.getElementById('rtl-toggle-mobile');
 
     html.setAttribute('dir', dir);
     localStorage.setItem('dir', dir);
 
+    // Update Desktop Button
     if (toggleBtn) {
         if (dir === 'rtl') {
             toggleBtn.innerHTML = '<span class="font-bold">LTR</span>';
@@ -38,6 +52,17 @@ function setDirection(dir) {
         } else {
             toggleBtn.innerHTML = '<span class="font-bold">RTL</span>';
             toggleBtn.setAttribute('aria-label', 'Switch to RTL');
+        }
+    }
+
+    // Update Mobile Button
+    if (mobileToggleBtn) {
+        if (dir === 'rtl') {
+            mobileToggleBtn.innerHTML = '<span class="font-bold">LTR</span>';
+            mobileToggleBtn.classList.add('text-blue-600');
+        } else {
+            mobileToggleBtn.innerHTML = '<span class="font-bold">RTL</span>';
+            mobileToggleBtn.classList.remove('text-blue-600');
         }
     }
 }
