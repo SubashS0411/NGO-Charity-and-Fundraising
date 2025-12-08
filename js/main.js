@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initAccordions();
     initCountdown();
     initSpeakerSlider();
+    initMap();
 });
 
 /* ==========================================
@@ -53,6 +54,7 @@ function initStickyNav() {
     const nav = document.querySelector('nav');
     if (nav) {
         const isDark = document.documentElement.classList.contains('dark');
+        const transparentAtTop = nav.getAttribute('data-transparent-at-top') === 'true';
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 10) {
@@ -61,7 +63,12 @@ function initStickyNav() {
                     nav.classList.add('bg-gray-900/95', 'shadow-lg');
                 } else {
                     nav.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
-                    nav.classList.remove('bg-transparent');
+                    if (transparentAtTop) {
+                        nav.classList.remove('bg-transparent');
+                    } else {
+                        // Ensure bg-white is present if we scrolled down, though it likely is already there
+                        nav.classList.remove('bg-white'); // Remove solid white to add translucent
+                    }
                 }
             } else {
                 if (isDark) {
@@ -69,10 +76,23 @@ function initStickyNav() {
                     nav.classList.remove('bg-gray-900/95', 'shadow-lg');
                 } else {
                     nav.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
-                    nav.classList.add('bg-transparent');
+                    if (transparentAtTop) {
+                        nav.classList.add('bg-transparent');
+                    } else {
+                        nav.classList.add('bg-white');
+                    }
                 }
             }
         });
+
+        // Initial Check
+        if (transparentAtTop && window.scrollY <= 10 && !isDark) {
+            nav.classList.add('bg-transparent');
+            nav.classList.remove('bg-white', 'shadow-sm');
+        } else if (!transparentAtTop && !isDark) {
+            nav.classList.add('bg-white');
+            nav.classList.remove('bg-transparent');
+        }
     }
 }
 
@@ -457,5 +477,24 @@ function initSpeakerSlider() {
             const scrollAmount = isRTL ? -320 : 320;
             slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         });
+    }
+}
+
+/* ==========================================
+   Map Initialization
+   ========================================== */
+
+function initMap() {
+    const mapElement = document.getElementById('map');
+    if (mapElement && typeof L !== 'undefined') {
+        const map = L.map('map').setView([37.784323, -122.40069], 15);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([37.784323, -122.40069]).addTo(map)
+            .bindPopup('Moscone Center<br>747 Howard St, San Francisco')
+            .openPopup();
     }
 }

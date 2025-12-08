@@ -7,13 +7,20 @@
     <title>Contact Us - TechSummit 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Outfit', 'sans-serif'],
                     }
                 }
             }
@@ -54,7 +61,7 @@
                     <a href="contact.html" class="text-blue-600 font-medium">Contact</a>
                     <button id="rtl-toggle" onclick="toggleRTL(event)"
                         class="text-gray-500 hover:text-blue-600 transition px-3 py-1 border border-gray-200 rounded-md text-sm hover:border-blue-300 hover:bg-blue-50">
-                        <span class="font-bold">RTL</span>
+                        <i class="fas fa-globe text-lg"></i>
                     </button>
                     <a href="register.html"
                         class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Register</a>
@@ -92,7 +99,7 @@
                     <span>Language Direction</span>
                     <button id="rtl-toggle-mobile" onclick="toggleRTL(event)"
                         class="text-gray-700 hover:text-blue-600 font-bold border border-gray-200 rounded px-2 py-1 text-sm bg-white">
-                        <span>RTL</span>
+                        <i class="fas fa-globe"></i>
                     </button>
                 </div>
                 <div class="border-t border-gray-100 my-2 pt-2">
@@ -239,14 +246,7 @@
 
         <!-- Map Section -->
         <div class="mt-16 bg-gray-200 rounded-xl overflow-hidden h-96 relative shadow-inner">
-            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-                class="w-full h-full object-cover opacity-60" alt="Map">
-            <div class="absolute inset-0 flex items-center justify-center">
-                <div class="bg-white px-8 py-4 rounded-full shadow-xl flex items-center gap-3 animate-bounce">
-                    <i class="fas fa-map-pin text-red-500 text-2xl"></i>
-                    <span class="font-bold text-gray-900 text-lg">Moscone Center</span>
-                </div>
-            </div>
+            <div id="map" class="w-full h-full z-0"></div>
         </div>
     </main>
 

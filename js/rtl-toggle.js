@@ -42,19 +42,19 @@ function setDirection(dir) {
             const span = btn.querySelector('span');
             if (span) span.textContent = 'LTR';
             btn.setAttribute('aria-label', 'Switch to LTR');
-            // If it's the mobile globe icon version (legacy), update it
-            if (btn.querySelector('.fa-globe')) {
-                btn.innerHTML = '<span class="font-bold">LTR</span>';
-            }
+            // Globe icon stays as globe icon
+            // if (btn.querySelector('.fa-globe')) {
+            //     btn.innerHTML = '<span class="font-bold">LTR</span>';
+            // }
         } else {
             // Switch to RTL mode text
             const span = btn.querySelector('span');
             if (span) span.textContent = 'RTL';
             btn.setAttribute('aria-label', 'Switch to RTL');
-            // If it's the mobile globe icon version (legacy), update it
-            if (btn.querySelector('.fa-globe')) {
-                btn.innerHTML = '<span class="font-bold">RTL</span>';
-            }
+            // Globe icon stays as globe icon
+            // if (btn.querySelector('.fa-globe')) {
+            //     btn.innerHTML = '<span class="font-bold">RTL</span>';
+            // }
         }
     });
 
