@@ -22,122 +22,118 @@
     </script>
 </head>
 
-<body
-    class="font-sans text-gray-800 bg-gray-50 antialiased min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] relative">
+<body class="font-sans text-gray-100 bg-slate-950 antialiased min-h-screen overflow-hidden relative pt-32 pb-16">
 
-    <a href="index.html"
-        class="absolute top-6 start-6 text-gray-500 hover:text-blue-600 flex items-center gap-2 transition hover:-translate-x-1 rtl:hover:translate-x-1 font-medium z-10">
-        <i class="fas fa-arrow-left rtl:rotate-180"></i> Back to Home
-    </a>
-
-    <button id="rtl-toggle" onclick="toggleRTL(event)"
-        class="absolute top-6 end-6 text-gray-500 hover:text-blue-600 font-medium transition-colors z-10"
-        aria-label="Switch Direction">
-        <i class="fas fa-globe text-lg"></i>
-    </button>
-
-    <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <a href="index.html" class="flex items-center justify-center gap-2 mb-6">
-            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
-                TS</div>
-            <span class="font-bold text-2xl text-gray-900">TechSummit</span>
-        </a>
-        <h2 class="text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
-        <p class="mt-2 text-center text-sm text-gray-600">
-            Or
-            <a href="register.html" class="font-medium text-blue-600 hover:text-blue-500">register for a new account</a>
-        </p>
+    <div class="absolute inset-0">
+        <div class="absolute -top-24 -end-10 w-96 h-96 bg-blue-500/20 blur-[140px] rounded-full"></div>
+        <div class="absolute top-24 -start-24 w-80 h-80 bg-purple-600/20 blur-[150px] rounded-full"></div>
+        <div class="absolute bottom-0 end-1/3 w-48 h-48 bg-cyan-500/10 blur-3xl rounded-full"></div>
     </div>
 
-    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div class="bg-white py-8 px-4 shadow-xl rounded-xl sm:px-10 border border-gray-100">
-
-            <!-- Demo Credentials Alert -->
-            <div class="bg-blue-50 border-s-4 border-blue-500 p-4 mb-6 rounded-e-md">
-                <div class="flex">
-                    <div class="flex-shrink-0">
-                        <i class="fas fa-info-circle text-blue-500"></i>
+    <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+            <section class="space-y-8 text-center lg:text-start">
+                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/20 bg-white/5 text-xs font-semibold tracking-[0.35em] uppercase text-gray-200">
+                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                    Oct 15-17 • SF
+                </div>
+                <h1 class="text-4xl lg:text-5xl font-black leading-tight text-white">
+                    Unlock your <span class="text-blue-300">TechSummit</span> control room
+                </h1>
+                <p class="text-lg text-gray-300 max-w-xl mx-auto lg:mx-0">Manage tickets, craft your custom schedule,
+                    and stay in sync with live announcements inside your personalized dashboard.</p>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="rounded-2xl border border-white/15 bg-white/5 p-5 text-start">
+                        <p class="text-sm text-gray-400">Your status</p>
+                        <p class="text-3xl font-bold text-white">Standard Pass</p>
+                        <p class="text-xs uppercase tracking-[0.3em] text-blue-200 mt-2">Confirmed</p>
                     </div>
-                    <div class="ms-3">
-                        <p class="text-sm text-blue-700 font-bold">Demo Credentials:</p>
-                        <p class="text-xs text-blue-600 mt-1">User: user@event.com / user123</p>
-                        <p class="text-xs text-blue-600">Admin: admin@event.com / admin123</p>
+                    <div class="rounded-2xl border border-white/15 bg-white/5 p-5 text-start">
+                        <p class="text-sm text-gray-400">Saved sessions</p>
+                        <p class="text-3xl font-bold text-white">12</p>
+                        <p class="text-xs uppercase tracking-[0.3em] text-blue-200 mt-2">Ready to Sync</p>
                     </div>
                 </div>
-            </div>
-
-            <form id="login-form" class="space-y-6">
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
-                    <div class="mt-1">
-                        <input id="email" name="email" type="email" autocomplete="email" required
-                            class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition">
-                    </div>
+                <div class="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start text-sm text-gray-300">
+                    <div class="flex items-center gap-2"><i class="fas fa-shield-halved text-blue-300"></i> Secure SSO
+                        supported</div>
+                    <div class="flex items-center gap-2"><i class="fas fa-bolt text-blue-300"></i> Real-time schedule
+                        updates</div>
                 </div>
+            </section>
 
-                <div>
-                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                    <div class="mt-1 relative">
-                        <input id="password" name="password" type="password" autocomplete="current-password" required
-                            class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition">
-                        <button type="button"
-                            onclick="const p = document.getElementById('password'); p.type = p.type === 'password' ? 'text' : 'password';"
-                            class="absolute inset-y-0 end-0 pe-3 flex items-center text-gray-400 hover:text-gray-600">
-                            <i class="far fa-eye"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center">
-                        <input id="remember-me" name="remember-me" type="checkbox"
-                            class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                        <label for="remember-me" class="ms-2 block text-sm text-gray-900">Remember me</label>
-                    </div>
-
-                    <div class="text-sm">
-                        <a href="#" class="font-medium text-blue-600 hover:text-blue-500">Forgot your password?</a>
-                    </div>
-                </div>
-
-                <div>
-                    <button type="submit"
-                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition">
-                        Sign in
-                    </button>
-                </div>
-            </form>
-
-            <div class="mt-6">
+            <section class="bg-white rounded-3xl shadow-2xl border border-gray-100 p-8 relative overflow-hidden">
+                <div class="absolute -top-6 -end-6 w-32 h-32 bg-blue-100 rounded-full blur-3xl"></div>
                 <div class="relative">
-                    <div class="absolute inset-0 flex items-center">
-                        <div class="w-full border-t border-gray-300"></div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white font-bold text-2xl flex items-center justify-center">TS</div>
+                        <div>
+                            <p class="text-sm text-gray-400 uppercase tracking-[0.4em]">Portal</p>
+                            <p class="text-xl font-semibold text-gray-900">TechSummit Login</p>
+                        </div>
                     </div>
-                    <div class="relative flex justify-center text-sm">
-                        <span class="px-2 bg-white text-gray-500">Or continue with</span>
+                    <h2 class="text-2xl font-bold text-gray-900">Welcome back</h2>
+                    <p class="text-sm text-gray-500 mt-1">No credentials? <a href="register.html"
+                            class="text-blue-600 font-semibold">Create your pass</a></p>
+
+                    <form id="login-form" class="space-y-6 mt-8">
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email address</label>
+                            <div class="relative">
+                                <i class="fas fa-envelope text-gray-400 absolute start-4 top-1/2 -translate-y-1/2"></i>
+                                <input id="email" name="email" type="email" autocomplete="email" required
+                                    class="w-full border border-gray-200 rounded-2xl py-3 ps-11 pe-4 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="password" class="block text-sm font-semibold text-gray-700 mb-2">Password</label>
+                            <div class="relative">
+                                <i class="fas fa-lock text-gray-400 absolute start-4 top-1/2 -translate-y-1/2"></i>
+                                <input id="password" name="password" type="password" autocomplete="current-password" required
+                                    class="w-full border border-gray-200 rounded-2xl py-3 ps-11 pe-12 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400">
+                                <button type="button"
+                                    onclick="const p = document.getElementById('password'); p.type = p.type === 'password' ? 'text' : 'password';"
+                                    class="absolute inset-y-0 end-0 pe-4 flex items-center text-gray-400 hover:text-gray-600">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <label class="flex items-center gap-2 text-gray-600">
+                                <input id="remember-me" name="remember-me" type="checkbox"
+                                    class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-gray-300">
+                                Remember me
+                            </label>
+                            <a href="#" class="text-blue-600 font-semibold">Forgot password?</a>
+                        </div>
+                        <button type="submit"
+                            class="w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-600 text-white font-semibold py-3 shadow-lg shadow-blue-500/30 hover:bg-blue-700 transition">
+                            <i class="fas fa-arrow-right"></i> Sign in
+                        </button>
+                    </form>
+
+                    <div class="mt-6">
+                        <div class="relative">
+                            <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-gray-200"></div></div>
+                            <div class="relative flex justify-center text-xs font-semibold text-gray-400 uppercase tracking-[0.4em]">
+                                Or
+                            </div>
+                        </div>
+                        <div class="mt-6 grid grid-cols-2 gap-3">
+                            <button
+                                class="flex items-center justify-center gap-3 border border-gray-200 rounded-2xl py-2.5 text-sm font-semibold text-gray-600 hover:bg-gray-50 transition">
+                                <i class="fab fa-google text-lg text-red-500"></i> Google
+                            </button>
+                            <button
+                                class="flex items-center justify-center gap-3 border border-gray-200 rounded-2xl py-2.5 text-sm font-semibold text-gray-600 hover:bg-gray-50 transition">
+                                <i class="fab fa-linkedin text-lg text-blue-700"></i> LinkedIn
+                            </button>
+                        </div>
                     </div>
                 </div>
-
-                <div class="mt-6 grid grid-cols-2 gap-3">
-                    <div>
-                        <a href="#"
-                            class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition">
-                            <i class="fab fa-google text-red-500 text-lg"></i>
-                            <span class="sr-only">Sign in with Google</span>
-                        </a>
-                    </div>
-
-                    <div>
-                        <a href="#"
-                            class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition">
-                            <i class="fab fa-linkedin text-blue-700 text-lg"></i>
-                            <span class="sr-only">Sign in with LinkedIn</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            </section>
         </div>
-    </div>
+    </main>
 
     <script src="js/rtl-toggle.js"></script>
     <script src="js/main.js"></script>

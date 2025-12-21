@@ -22,70 +22,133 @@
     </script>
 </head>
 
-<body class="font-sans text-gray-800 bg-gray-50 antialiased min-h-screen flex flex-col">
+<body class="font-sans text-gray-100 bg-slate-950 antialiased min-h-screen overflow-hidden relative pt-32 pb-16">
 
-    <!-- Simple Header -->
-    <header class="bg-white shadow-sm py-4">
-        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-            <div class="flex items-center gap-4">
-                <a href="index.html"
-                    class="text-gray-500 hover:text-blue-600 transition hover:-translate-x-1 rtl:hover:translate-x-1">
-                    <i class="fas fa-arrow-left rtl:rotate-180"></i>
-                </a>
-                <a href="index.html" class="flex items-center gap-2">
-                    <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white font-bold">TS
-                    </div>
-                    <span class="font-bold text-xl text-gray-900">TechSummit</span>
-                </a>
-            </div>
-            <div class="flex items-center gap-4">
-                <a href="login.html" class="text-sm font-medium text-blue-600 hover:underline">Already registered? Log
-                    in</a>
-                <button id="rtl-toggle" onclick="toggleRTL(event)"
-                    class="text-gray-500 hover:text-blue-600 font-medium transition-colors"
-                    aria-label="Switch Direction">
-                    <i class="fas fa-globe text-lg"></i>
-                </button>
-            </div>
-        </div>
-    </header>
+    <div class="absolute inset-0">
+        <div class="absolute -top-32 -end-16 w-96 h-96 bg-blue-500/20 blur-[160px] rounded-full"></div>
+        <div class="absolute top-20 -start-24 w-80 h-80 bg-purple-600/30 blur-[150px] rounded-full"></div>
+        <div class="absolute bottom-0 end-1/4 w-56 h-56 bg-cyan-400/10 blur-3xl rounded-full"></div>
+    </div>
 
     <!-- Main Content -->
-    <main class="flex-grow py-12">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid lg:grid-cols-[0.95fr,1.05fr] gap-10 items-start">
 
-            <!-- Progress Bar -->
-            <div class="mb-12">
-                <div class="flex justify-between mb-4 relative z-10">
-                    <div
-                        class="step-indicator w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold border-2 border-blue-600 transition duration-300">
-                        1</div>
-                    <div
-                        class="step-indicator w-10 h-10 rounded-full bg-white text-gray-500 flex items-center justify-center font-bold border-2 border-gray-300 transition duration-300">
-                        2</div>
-                    <div
-                        class="step-indicator w-10 h-10 rounded-full bg-white text-gray-500 flex items-center justify-center font-bold border-2 border-gray-300 transition duration-300">
-                        3</div>
-                    <div
-                        class="step-indicator w-10 h-10 rounded-full bg-white text-gray-500 flex items-center justify-center font-bold border-2 border-gray-300 transition duration-300">
-                        4</div>
+            <section class="rounded-3xl border border-white/15 bg-white/5 backdrop-blur-xl p-8 text-white space-y-8">
+                <div>
+                    <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/20 bg-white/5 text-xs font-semibold tracking-[0.35em] uppercase text-gray-200">
+                        2025 Edition
+                    </div>
+                    <h1 class="text-3xl lg:text-4xl font-black mt-4 leading-tight">Design your <span
+                            class="text-blue-200">ultimate</span> TechSummit experience</h1>
+                    <p class="text-gray-200 mt-4">120+ sessions, curated networking lounges, and lab access tailored
+                        to your personal goals.</p>
                 </div>
-                <div class="relative h-2 bg-gray-200 rounded-full -mt-9 mx-4">
-                    <div id="progress-bar"
-                        class="absolute top-0 start-0 h-full bg-blue-600 rounded-full transition-all duration-300"
-                        style="width: 0%"></div>
-                </div>
-                <div class="flex justify-between mt-8 text-xs font-medium text-gray-500 uppercase tracking-wide">
-                    <span class="w-10 text-center -ms-3">Info</span>
-                    <span class="w-10 text-center">Ticket</span>
-                    <span class="w-10 text-center">Prefs</span>
-                    <span class="w-10 text-center -me-3">Pay</span>
-                </div>
-            </div>
 
-            <!-- Form Container -->
-            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-                <form id="register-form" class="p-8 md:p-12">
+                <div class="grid gap-4">
+                    <div class="rounded-2xl border border-white/15 bg-white/5 p-5">
+                        <p class="text-sm text-gray-300 mb-3">Your registration includes</p>
+                        <ul class="space-y-2 text-sm text-gray-100">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-300"></i> Priority
+                                seating for keynotes</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-300"></i>
+                                Hands-on workshops + labs</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-300"></i> Curated
+                                networking meetups</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-2xl border border-white/15 bg-white/5 p-5">
+                        <p class="text-xs uppercase tracking-[0.4em] text-gray-400">Fast facts</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <div>
+                                <p class="text-3xl font-bold">5000+</p>
+                                <p class="text-xs text-gray-400 uppercase tracking-widest">Peers</p>
+                            </div>
+                            <div>
+                                <p class="text-3xl font-bold">120</p>
+                                <p class="text-xs text-gray-400 uppercase tracking-widest">Speakers</p>
+                            </div>
+                            <div>
+                                <p class="text-3xl font-bold">45</p>
+                                <p class="text-xs text-gray-400 uppercase tracking-widest">Sessions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-xs uppercase tracking-[0.4em] text-gray-400 mb-4">Timeline</p>
+                    <div class="space-y-4">
+                        <div class="flex gap-3">
+                            <span class="w-2 h-2 rounded-full bg-blue-200 mt-2"></span>
+                            <div>
+                                <p class="text-sm font-semibold text-white">1 • Tell us about you</p>
+                                <p class="text-sm text-gray-300">Share your focus areas so we can surface the right
+                                    labs.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="w-2 h-2 rounded-full bg-blue-200 mt-2"></span>
+                            <div>
+                                <p class="text-sm font-semibold text-white">2 • Choose the pass</p>
+                                <p class="text-sm text-gray-300">Pick from Student, Pro, or VIP tiers with add-ons.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="w-2 h-2 rounded-full bg-blue-200 mt-2"></span>
+                            <div>
+                                <p class="text-sm font-semibold text-white">3 • Personalize</p>
+                                <p class="text-sm text-gray-300">Set interests, dietary needs, and merch sizes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl border border-white/15 bg-white/5 p-5">
+                    <p class="text-sm text-gray-200">Need help choosing a pass? Our concierge team can curate a
+                        custom package.</p>
+                    <a href="contact.html"
+                        class="inline-flex items-center gap-2 text-blue-200 font-semibold mt-3">Talk to an advisor <i
+                            class="fas fa-arrow-up-right-from-square text-xs"></i></a>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-3xl shadow-2xl border border-gray-100 p-8 md:p-10">
+                <div class="flex flex-col gap-2 mb-10">
+                    <p class="text-sm font-semibold text-blue-600 tracking-[0.4em] uppercase">Registration</p>
+                    <h2 class="text-3xl font-bold text-gray-900">Secure your seat</h2>
+                    <p class="text-gray-500">Complete the guided steps below. Your progress autosaves on this device.</p>
+                </div>
+
+                <div class="mb-10">
+                    <div class="flex justify-between mb-4 relative z-10">
+                        <div
+                            class="step-indicator w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold border-2 border-blue-600 transition duration-300">
+                            1</div>
+                        <div
+                            class="step-indicator w-12 h-12 rounded-full bg-white text-gray-500 flex items-center justify-center font-bold border-2 border-gray-300 transition duration-300">
+                            2</div>
+                        <div
+                            class="step-indicator w-12 h-12 rounded-full bg-white text-gray-500 flex items-center justify-center font-bold border-2 border-gray-300 transition duration-300">
+                            3</div>
+                        <div
+                            class="step-indicator w-12 h-12 rounded-full bg-white text-gray-500 flex items-center justify-center font-bold border-2 border-gray-300 transition duration-300">
+                            4</div>
+                    </div>
+                    <div class="relative h-2 bg-gray-100 rounded-full -mt-10 mx-6">
+                        <div id="progress-bar"
+                            class="absolute top-0 start-0 h-full bg-gradient-to-r from-blue-600 to-purple-500 rounded-full transition-all duration-300"
+                            style="width: 0%"></div>
+                    </div>
+                    <div class="flex justify-between mt-8 text-xs font-semibold text-gray-400 uppercase tracking-[0.35em]">
+                        <span class="-ms-2">Info</span>
+                        <span>Ticket</span>
+                        <span>Prefs</span>
+                        <span class="-me-2">Pay</span>
+                    </div>
+                </div>
+
+                <form id="register-form" class="space-y-10">
 
                     <!-- Step 1: Personal Info -->
                     <div class="form-step" data-step="1">
@@ -330,8 +393,8 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200 py-8 text-center text-sm text-gray-500">
-        <p>&copy; 2025 TechSummit. Secure Payment Processing.</p>
+    <footer class="bg-slate-950 border-t border-white/10 py-8 text-center text-sm text-gray-400 relative z-10">
+        <p>&copy; 2025 TechSummit. Secure payment processing.</p>
     </footer>
 
     <script src="js/rtl-toggle.js"></script>

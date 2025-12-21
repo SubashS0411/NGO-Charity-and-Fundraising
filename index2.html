@@ -216,7 +216,7 @@
     </nav>
     <!-- Hero Section (Centered & Immersive) -->
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden hero-bg">
-        <div class="absolute inset-0 bg-gray-900/80"></div>
+        <div class="absolute inset-0 bg-gray-900/80 pointer-events-none"></div>
         <div class="relative z-10 max-w-5xl mx-auto px-4 text-center pt-20">
             <div class="inline-block mb-6 animate-fade-in-up hover:scale-105 transition-transform cursor-default"><span
                     class="py-1 px-3 rounded-full bg-purple-500/20 border border-purple-500/50 text-purple-300 text-sm font-semibold tracking-wide uppercase"><i
@@ -242,9 +242,9 @@
 
         </div>
         <!-- Floating Stats Bar -->
-        <div class="absolute bottom-0 left-0 right-0 glass-panel border-t border-b-0 border-x-0 py-8 animate-fade-in-up"
+        <div class="absolute bottom-0 left-0 right-0 glass-panel border-t border-b-0 border-x-0 py-8 animate-fade-in-up pointer-events-none z-0"
             style="animation-delay: 1s; animation-fill-mode: both;">
-            <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 pointer-events-auto">
                 <div class="text-center group hover:-translate-y-1 transition-transform duration-300">
                     <div class="text-3xl font-bold text-white counter group-hover:text-purple-400 transition-colors"
                         data-target="5000">0</div>
