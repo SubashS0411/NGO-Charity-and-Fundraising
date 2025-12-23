@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" class="overflow-x-hidden">
 
 <head>
     <meta charset="UTF-8">
@@ -21,10 +21,10 @@
     </script>
 </head>
 
-<body
-    class="font-sans text-gray-800 bg-gray-50 antialiased h-screen flex flex-col items-center justify-center text-center px-4">
+<body class="font-sans text-gray-800 bg-gray-50 antialiased overflow-x-hidden" data-nav-transparent="false">
 
-    <div class="max-w-lg w-full">
+    <main class="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-32 pb-16">
+        <div class="max-w-lg w-full">
         <div class="text-9xl font-extrabold text-blue-100 mb-8 animate-pulse">404</div>
 
         <h1 class="text-4xl font-bold text-gray-900 mb-4">Page Not Found</h1>
@@ -52,12 +52,11 @@
             </a>
         </div>
 
-        <div class="mt-12 text-sm text-gray-500">
-            <p>&copy; 2025 TechSummit. All rights reserved.</p>
         </div>
-    </div>
+    </main>
 
     <script src="js/rtl-toggle.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

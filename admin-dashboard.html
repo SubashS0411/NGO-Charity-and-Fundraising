@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" class="overflow-x-hidden">
 
 <head>
     <meta charset="UTF-8">
@@ -7,14 +7,18 @@
     <title>Admin Dashboard - TechSummit 2025</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#4338ca',
+                        accent: '#06b6d4'
                     }
                 }
             }
@@ -22,321 +26,773 @@
     </script>
 </head>
 
-<body class="font-sans text-gray-800 bg-gray-100 antialiased">
+<body class="font-sans bg-slate-100 text-slate-900 antialiased overflow-x-hidden">
 
-    <div class="flex h-screen overflow-hidden">
+    <div class="flex min-h-screen bg-slate-100 w-full max-w-full">
 
         <!-- Mobile Backdrop -->
-        <div id="sidebar-backdrop"
-            class="fixed inset-0 z-40 bg-gray-900/50 hidden md:hidden glass-panel backdrop-blur-sm transition-opacity">
-        </div>
+        <div id="sidebar-backdrop" class="fixed inset-0 z-40 bg-slate-900/60 hidden md:hidden"></div>
 
         <!-- Sidebar -->
         <aside id="sidebar"
-            class="w-64 bg-gray-900 text-gray-400 flex flex-col hidden md:flex fixed md:relative z-50 h-full transition-transform transform -translate-x-full md:translate-x-0">
-            <div class="h-16 flex items-center px-6 bg-gray-800">
-                <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white font-bold mr-3">TS
+            class="hidden md:flex fixed md:relative inset-y-0 start-0 z-50 w-72 bg-slate-950 text-slate-200 flex-col shadow-2xl transition-transform duration-300 -translate-x-full md:translate-x-0">
+            <div class="h-20 px-6 flex items-center border-b border-white/10 bg-slate-950/90">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center text-white font-bold tracking-tight">
+                    TS
                 </div>
-                <span class="text-white font-bold text-lg">Admin Panel</span>
+                <div class="ps-4">
+                    <p class="text-xs uppercase tracking-[0.2em] text-white/60">TechSummit</p>
+                    <p class="text-lg font-semibold text-white">Admin Control</p>
+                </div>
             </div>
 
-            <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
-                <a href="#" class="flex items-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg transition">
-                    <i class="fas fa-chart-pie w-5"></i> Overview
+            <nav class="flex-1 overflow-y-auto px-4 py-6 space-y-2">
+                <a href="#"
+                    class="flex items-center gap-3 rounded-2xl px-4 py-3 bg-white/10 text-white shadow-inner shadow-blue-500/10">
+                    <i class="fas fa-gauge text-lg"></i>
+                    <span class="font-medium">Overview</span>
                 </a>
                 <a href="#"
-                    class="flex items-center gap-3 px-4 py-3 hover:bg-gray-800 hover:text-white rounded-lg transition">
-                    <i class="fas fa-users w-5"></i> Attendees
+                    class="flex items-center gap-3 rounded-2xl px-4 py-3 hover:bg-white/5 transition-colors">
+                    <i class="fas fa-users"></i>
+                    <span>Attendees</span>
                 </a>
                 <a href="#"
-                    class="flex items-center gap-3 px-4 py-3 hover:bg-gray-800 hover:text-white rounded-lg transition">
-                    <i class="fas fa-microphone w-5"></i> Speakers
+                    class="flex items-center gap-3 rounded-2xl px-4 py-3 hover:bg-white/5 transition-colors">
+                    <i class="fas fa-microphone"></i>
+                    <span>Speakers</span>
                 </a>
                 <a href="#"
-                    class="flex items-center gap-3 px-4 py-3 hover:bg-gray-800 hover:text-white rounded-lg transition">
-                    <i class="fas fa-calendar-alt w-5"></i> Schedule
+                    class="flex items-center gap-3 rounded-2xl px-4 py-3 hover:bg-white/5 transition-colors">
+                    <i class="fas fa-calendar-day"></i>
+                    <span>Schedule</span>
                 </a>
                 <a href="#"
-                    class="flex items-center gap-3 px-4 py-3 hover:bg-gray-800 hover:text-white rounded-lg transition">
-                    <i class="fas fa-ticket-alt w-5"></i> Tickets
+                    class="flex items-center gap-3 rounded-2xl px-4 py-3 hover:bg-white/5 transition-colors">
+                    <i class="fas fa-ticket"></i>
+                    <span>Tickets</span>
                 </a>
                 <a href="#"
-                    class="flex items-center gap-3 px-4 py-3 hover:bg-gray-800 hover:text-white rounded-lg transition">
-                    <i class="fas fa-chart-line w-5"></i> Analytics
+                    class="flex items-center gap-3 rounded-2xl px-4 py-3 hover:bg-white/5 transition-colors">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
                 </a>
                 <a href="#"
-                    class="flex items-center gap-3 px-4 py-3 hover:bg-gray-800 hover:text-white rounded-lg transition">
-                    <i class="fas fa-cog w-5"></i> Settings
+                    class="flex items-center gap-3 rounded-2xl px-4 py-3 hover:bg-white/5 transition-colors">
+                    <i class="fas fa-gear"></i>
+                    <span>Settings</span>
                 </a>
             </nav>
 
-            <div class="p-4 border-t border-gray-800">
-                <a href="index.html" class="flex items-center gap-3 px-4 py-2 hover:text-white transition">
-                    <i class="fas fa-sign-out-alt w-5"></i> Logout
+            <div class="px-4 py-5 border-t border-white/5">
+                <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-2xl text-white/80 hover:bg-white/5">
+                    <i class="fas fa-arrow-right-from-bracket"></i>
+                    <span>Logout</span>
                 </a>
             </div>
         </aside>
 
         <!-- Main Content -->
-        <div class="flex-1 flex flex-col overflow-hidden">
+        <div class="flex-1 flex flex-col overflow-hidden min-w-0">
 
             <!-- Top Header -->
-            <header class="h-16 bg-white shadow-sm flex items-center justify-between px-6 z-10">
-                <div class="flex items-center gap-4">
-                    <button id="sidebar-toggle" class="md:hidden text-gray-600 focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                    <h2 class="text-xl font-bold text-gray-800">Dashboard Overview</h2>
+            <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-200">
+                <div class="h-20 px-4 sm:px-6 flex items-center justify-between gap-4">
+                    <div class="flex items-center gap-4">
+                        <button id="sidebar-toggle" class="md:hidden text-slate-600" aria-label="Toggle sidebar">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                        <div>
+                            <p class="text-xs uppercase tracking-[0.4em] text-slate-500">Operations</p>
+                            <h1 class="text-xl font-semibold text-slate-900">Dashboard Overview</h1>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 sm:gap-4">
+                        <div class="relative hidden md:block">
+                            <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                            <input type="search" placeholder="Search"
+                                class="ps-10 pe-4 py-2 rounded-2xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm bg-white">
+                        </div>
+
+                        <button class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-2xl border border-slate-200 text-sm font-medium hover:border-indigo-400">
+                            <i class="fas fa-cloud-arrow-up text-indigo-500"></i>
+                            Sync
+                        </button>
+
+                        <button class="relative text-slate-600 hover:text-indigo-500" aria-label="Notifications">
+                            <i class="fas fa-bell text-xl"></i>
+                            <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+                        </button>
+
+                        <div class="flex items-center gap-3">
+                            <img src="https://ui-avatars.com/api/?name=Admin+User&background=0D8ABC&color=fff"
+                                class="w-9 h-9 rounded-2xl" alt="Admin avatar">
+                            <div class="hidden sm:block">
+                                <p class="text-sm font-semibold">Admin User</p>
+                                <p class="text-xs text-slate-500">Lead Coordinator</p>
+                            </div>
+                        </div>
+
+                        <button id="rtl-toggle" onclick="toggleRTL(event)" class="text-slate-500 hover:text-indigo-500"
+                            aria-label="Switch Direction">
+                            <i class="fas fa-globe text-lg"></i>
+                        </button>
+                    </div>
                 </div>
 
-                <div class="flex items-center gap-6">
-                    <div class="relative hidden sm:block">
-                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                        <input type="text" placeholder="Search..."
-                            class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                <div class="px-4 pb-4 md:hidden">
+                    <div class="relative">
+                        <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input type="search" placeholder="Search"
+                            class="w-full ps-10 pe-4 py-2 rounded-2xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm bg-white">
                     </div>
-
-
-
-                    <button class="relative text-gray-500 hover:text-blue-600">
-                        <i class="fas fa-bell text-xl"></i>
-                        <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-                    </button>
-
-                    <div class="flex items-center gap-3">
-                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=0D8ABC&color=fff"
-                            class="w-8 h-8 rounded-full" alt="Admin">
-                        <span class="font-medium text-sm hidden sm:block">Admin User</span>
-                    </div>
-
-                    <button id="rtl-toggle" onclick="toggleRTL(event)"
-                        class="text-gray-500 hover:text-blue-600 font-medium transition-colors"
-                        aria-label="Switch Direction">
-                        <i class="fas fa-globe text-lg"></i>
-                    </button>
                 </div>
             </header>
 
             <!-- Scrollable Content -->
-            <main class="flex-1 overflow-y-auto p-6">
+            <main class="flex-1 overflow-y-auto px-4 sm:px-6 py-6 space-y-6">
 
-                <!-- KPI Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <p class="text-sm text-gray-500 font-medium">Total Attendees</p>
-                                <h3 class="text-3xl font-bold text-gray-900">4,250</h3>
-                            </div>
-                            <div class="p-2 bg-blue-50 text-blue-600 rounded-lg">
-                                <i class="fas fa-users text-xl"></i>
+                <!-- Hero Insights -->
+                <section
+                    class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
+                    <div class="absolute inset-0 pointer-events-none opacity-40" aria-hidden="true">
+                        <div class="absolute -top-20 -right-24 w-72 h-72 bg-white/30 blur-3xl rounded-full"></div>
+                        <div class="absolute -bottom-24 -left-8 w-80 h-80 bg-white/20 blur-3xl rounded-full"></div>
+                    </div>
+                    <div class="relative flex flex-col gap-6 text-center lg:text-left lg:flex-row lg:items-center lg:justify-between">
+                        <div class="space-y-3">
+                            <p class="text-xs uppercase tracking-[0.5em] text-white/70">TechSummit 2025</p>
+                            <h2 class="text-3xl md:text-4xl font-semibold mt-3">Morning brief, Admin</h2>
+                            <p class="mt-3 text-white/80 max-w-2xl">
+                                Monitor attendee momentum, keep session logistics on track, and react to live feedback with
+                                confidence across every screen size.
+                            </p>
+                            <div class="mt-6 flex flex-wrap gap-3 justify-center lg:justify-start">
+                                <button
+                                    class="px-5 py-2.5 rounded-2xl bg-white/95 text-indigo-700 font-medium hover:bg-white">
+                                    Create update
+                                </button>
+                                <button
+                                    class="px-5 py-2.5 rounded-2xl border border-white/40 text-white/90 font-medium hover:bg-white/10">
+                                    Share report
+                                </button>
                             </div>
                         </div>
-                        <span class="text-green-500 text-sm font-medium"><i class="fas fa-arrow-up"></i> 12%</span>
-                        <span class="text-gray-400 text-xs ml-1">vs last month</span>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <div class="flex justify-between items-start mb-4">
+                        <div class="grid grid-cols-2 gap-6 min-w-[220px] text-center lg:text-left">
                             <div>
-                                <p class="text-sm text-gray-500 font-medium">Total Revenue</p>
-                                <h3 class="text-3xl font-bold text-gray-900">$845k</h3>
+                                <p class="text-xs uppercase tracking-[0.3em] text-white/70">Check-ins</p>
+                                <p class="text-4xl font-semibold mt-2">1,842</p>
+                                <p class="text-sm text-emerald-200 mt-1">+184 today</p>
                             </div>
-                            <div class="p-2 bg-green-50 text-green-600 rounded-lg">
-                                <i class="fas fa-dollar-sign text-xl"></i>
+                            <div>
+                                <p class="text-xs uppercase tracking-[0.3em] text-white/70">NPS</p>
+                                <p class="text-4xl font-semibold mt-2">71</p>
+                                <p class="text-sm text-white/70 mt-1">Target 74</p>
                             </div>
                         </div>
-                        <span class="text-green-500 text-sm font-medium"><i class="fas fa-arrow-up"></i> 8%</span>
-                        <span class="text-gray-400 text-xs ml-1">vs last month</span>
                     </div>
+                </section>
 
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <p class="text-sm text-gray-500 font-medium">Sessions</p>
-                                <h3 class="text-3xl font-bold text-gray-900">48</h3>
+                <!-- KPI Slider -->
+                <section class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold">Key metrics</h3>
+                        <button class="text-sm text-indigo-500 font-medium">View detail</button>
+                    </div>
+                    <div
+                        class="-mx-4 px-4 sm:mx-0 sm:px-0 flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory scroll-smooth">
+                        <article
+                            class="min-w-[240px] snap-start bg-white rounded-3xl border border-slate-200 p-5 shadow-sm">
+                            <div class="flex items-center justify-between">
+                                <p class="text-sm text-slate-500">Net new attendees</p>
+                                <span class="px-2 py-1 rounded-full text-xs bg-emerald-50 text-emerald-600">+17%</span>
                             </div>
-                            <div class="p-2 bg-purple-50 text-purple-600 rounded-lg">
-                                <i class="fas fa-microphone text-xl"></i>
+                            <p class="mt-3 text-3xl font-semibold">642</p>
+                            <p class="text-xs text-slate-500 mt-1">24hr window</p>
+                            <div class="mt-4 h-2 rounded-full bg-slate-100">
+                                <div class="h-full rounded-full bg-gradient-to-r from-emerald-400 to-lime-400" style="width:78%"></div>
+                            </div>
+                        </article>
+                        <article
+                            class="min-w-[240px] snap-start bg-white rounded-3xl border border-slate-200 p-5 shadow-sm">
+                            <div class="flex items-center justify-between">
+                                <p class="text-sm text-slate-500">Revenue collected</p>
+                                <span class="px-2 py-1 rounded-full text-xs bg-sky-50 text-sky-600">$1.9M</span>
+                            </div>
+                            <p class="mt-3 text-3xl font-semibold">92%</p>
+                            <p class="text-xs text-slate-500 mt-1">of quarterly target</p>
+                            <div class="mt-4 h-2 rounded-full bg-slate-100">
+                                <div class="h-full rounded-full bg-gradient-to-r from-sky-500 to-blue-500" style="width:92%"></div>
+                            </div>
+                        </article>
+                        <article
+                            class="min-w-[240px] snap-start bg-white rounded-3xl border border-slate-200 p-5 shadow-sm">
+                            <div class="flex items-center justify-between">
+                                <p class="text-sm text-slate-500">Avg satisfaction</p>
+                                <span class="px-2 py-1 rounded-full text-xs bg-violet-50 text-violet-600">+3.2</span>
+                            </div>
+                            <p class="mt-3 text-3xl font-semibold">4.7</p>
+                            <p class="text-xs text-slate-500 mt-1">live poll rating</p>
+                            <div class="mt-4 flex items-center gap-2 text-xs text-slate-500">
+                                <i class="fas fa-sparkles text-violet-500"></i>
+                                Upgraded check-in flow reduced wait times.
+                            </div>
+                        </article>
+                        <article
+                            class="min-w-[240px] snap-start bg-white rounded-3xl border border-slate-200 p-5 shadow-sm">
+                            <div class="flex items-center justify-between">
+                                <p class="text-sm text-slate-500">Team tasks</p>
+                                <span class="px-2 py-1 rounded-full text-xs bg-amber-50 text-amber-600">12 due</span>
+                            </div>
+                            <p class="mt-3 text-3xl font-semibold">34</p>
+                            <p class="text-xs text-slate-500 mt-1">open vs 102 total</p>
+                            <div class="mt-4 flex -space-x-2">
+                                <img class="w-8 h-8 rounded-full border-2 border-white"
+                                    src="https://i.pravatar.cc/80?img=1" alt="team">
+                                <img class="w-8 h-8 rounded-full border-2 border-white"
+                                    src="https://i.pravatar.cc/80?img=4" alt="team">
+                                <img class="w-8 h-8 rounded-full border-2 border-white"
+                                    src="https://i.pravatar.cc/80?img=5" alt="team">
+                                <span
+                                    class="w-8 h-8 rounded-full border-2 border-white bg-slate-100 text-xs flex items-center justify-center text-slate-500">+5</span>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Charts & Ops -->
+                <section class="grid gap-6 xl:grid-cols-3">
+                    <article
+                        class="xl:col-span-2 bg-white rounded-3xl border border-slate-200 p-6 shadow-sm flex flex-col gap-6 min-w-0">
+                        <div class="flex flex-wrap items-center gap-3 justify-between">
+                            <div>
+                                <p class="text-sm text-slate-500">Registration trends</p>
+                                <h3 class="text-xl font-semibold">Attendee momentum</h3>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <select
+                                    class="rounded-2xl border border-slate-200 text-sm px-3 py-2 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200">
+                                    <option>7 days</option>
+                                    <option>30 days</option>
+                                    <option>Quarter</option>
+                                </select>
+                                <button class="px-4 py-2 rounded-2xl text-sm font-medium bg-slate-900 text-white">
+                                    Export chart
+                                </button>
                             </div>
                         </div>
-                        <span class="text-gray-500 text-sm font-medium">All set</span>
-                    </div>
+                        <div class="w-full min-w-0">
+                            <canvas id="registrationChart" height="120" class="max-h-[320px] w-full"></canvas>
+                        </div>
+                    </article>
 
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <div class="flex justify-between items-start mb-4">
+                    <article class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-6">
+                        <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-sm text-gray-500 font-medium">Tickets Sold</p>
-                                <h3 class="text-3xl font-bold text-gray-900">85%</h3>
+                                <p class="text-sm text-slate-500">Operations pulse</p>
+                                <h3 class="text-xl font-semibold">Support load</h3>
                             </div>
-                            <div class="p-2 bg-orange-50 text-orange-600 rounded-lg">
-                                <i class="fas fa-ticket-alt text-xl"></i>
+                            <span class="text-emerald-600 text-sm font-semibold">Stable</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex items-center justify-between text-sm">
+                                    <p>Help desk</p>
+                                    <span class="text-slate-500">68%</span>
+                                </div>
+                                <div class="h-2 rounded-full bg-slate-100 mt-2">
+                                    <div class="h-full rounded-full bg-gradient-to-r from-emerald-400 to-emerald-600" style="width:68%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between text-sm">
+                                    <p>Speaker requests</p>
+                                    <span class="text-slate-500">42%</span>
+                                </div>
+                                <div class="h-2 rounded-full bg-slate-100 mt-2">
+                                    <div class="h-full rounded-full bg-gradient-to-r from-amber-400 to-orange-500" style="width:42%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between text-sm">
+                                    <p>Venue escalations</p>
+                                    <span class="text-slate-500">12%</span>
+                                </div>
+                                <div class="h-2 rounded-full bg-slate-100 mt-2">
+                                    <div class="h-full rounded-full bg-gradient-to-r from-rose-400 to-rose-600" style="width:12%"></div>
+                                </div>
                             </div>
                         </div>
-                        <span class="text-red-500 text-sm font-medium"><i class="fas fa-arrow-down"></i> 2%</span>
-                        <span class="text-gray-400 text-xs ml-1">remaining capacity</span>
-                    </div>
-                </div>
+                        <div class="rounded-2xl border border-slate-100 p-4 bg-slate-50">
+                            <p class="text-sm text-slate-500">Teams watching</p>
+                            <p class="text-lg font-semibold mt-1">Ops, Logistics, Speakers</p>
+                            <p class="text-xs text-slate-500 mt-2">Updated 6 min ago</p>
+                        </div>
+                    </article>
+                </section>
 
-                <!-- Charts & Tables -->
-                <div class="grid lg:grid-cols-3 gap-8 mb-8">
-                    <!-- Chart Placeholder -->
-                    <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <div class="flex justify-between items-center mb-6">
-                            <h3 class="font-bold text-gray-900">Registration Trends</h3>
-                            <select
-                                class="text-sm border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                                <option>Last 7 Days</option>
-                                <option>Last 30 Days</option>
+                <!-- Engagement Charts -->
+                <section class="grid gap-6 lg:grid-cols-2">
+                    <article class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm flex flex-col gap-6 min-w-0">
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-sm text-slate-500">Ticket overview</p>
+                                <h3 class="text-xl font-semibold">Channel split</h3>
+                            </div>
+                            <span class="text-xs px-3 py-1 rounded-full bg-slate-100 text-slate-600">Live</span>
+                        </div>
+                        <div class="w-full min-w-0 flex justify-center">
+                            <canvas id="ticketBreakdownChart" height="220" class="max-w-full"></canvas>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <p class="text-slate-500">Avg. order value</p>
+                                <p class="text-2xl font-semibold text-slate-900">$482</p>
+                            </div>
+                            <div>
+                                <p class="text-slate-500">Refund rate</p>
+                                <p class="text-2xl font-semibold text-slate-900">1.4%</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm flex flex-col gap-6 min-w-0">
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-sm text-slate-500">Engagement</p>
+                                <h3 class="text-xl font-semibold">Session occupancy</h3>
+                            </div>
+                            <select class="rounded-2xl border border-slate-200 text-sm px-3 py-1.5">
+                                <option>Week</option>
+                                <option>Month</option>
                             </select>
                         </div>
-                        <div
-                            class="h-64 bg-gray-50 rounded-lg flex items-center justify-center relative overflow-hidden">
-                            <!-- Simple CSS Bar Chart -->
-                            <div class="flex items-end gap-4 h-40 w-full px-8">
-                                <div class="w-full bg-blue-200 rounded-t hover:bg-blue-300 transition"
-                                    style="height: 40%"></div>
-                                <div class="w-full bg-blue-200 rounded-t hover:bg-blue-300 transition"
-                                    style="height: 60%"></div>
-                                <div class="w-full bg-blue-200 rounded-t hover:bg-blue-300 transition"
-                                    style="height: 45%"></div>
-                                <div class="w-full bg-blue-200 rounded-t hover:bg-blue-300 transition"
-                                    style="height: 70%"></div>
-                                <div class="w-full bg-blue-200 rounded-t hover:bg-blue-300 transition"
-                                    style="height: 55%"></div>
-                                <div class="w-full bg-blue-200 rounded-t hover:bg-blue-300 transition"
-                                    style="height: 80%"></div>
-                                <div class="w-full bg-blue-600 rounded-t shadow-lg" style="height: 90%"></div>
+                        <div class="w-full min-w-0">
+                            <canvas id="engagementTrendChart" height="220" class="w-full"></canvas>
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-slate-500">
+                            <span>Peak: XR Stage</span>
+                            <span>Lowest: Lab 01</span>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- Schedule & Tasks -->
+                <section class="grid gap-6 lg:grid-cols-2">
+                    <article class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-6">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xl font-semibold">Live schedule</h3>
+                            <button class="text-sm text-indigo-500 font-medium">View full agenda</button>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="text-center">
+                                    <p class="text-sm font-semibold">09:00</p>
+                                    <p class="text-xs text-slate-500">Hall A</p>
+                                </div>
+                                <div class="flex-1 border-s border-slate-200 ps-4">
+                                    <p class="text-sm uppercase tracking-widest text-slate-500">Keynote</p>
+                                    <h4 class="text-lg font-semibold mt-1">Reinventing Scalable AI Systems</h4>
+                                    <p class="text-sm text-slate-500 mt-1">Dr. Lianhao Zhou • Capacity 94%</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="text-center">
+                                    <p class="text-sm font-semibold">11:15</p>
+                                    <p class="text-xs text-slate-500">Stage XR</p>
+                                </div>
+                                <div class="flex-1 border-s border-slate-200 ps-4">
+                                    <p class="text-sm uppercase tracking-widest text-slate-500">Panel</p>
+                                    <h4 class="text-lg font-semibold mt-1">Distributed Cloud in Production</h4>
+                                    <p class="text-sm text-slate-500 mt-1">Moderated by Ava Patel</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="text-center">
+                                    <p class="text-sm font-semibold">14:30</p>
+                                    <p class="text-xs text-slate-500">Lab 02</p>
+                                </div>
+                                <div class="flex-1 border-s border-slate-200 ps-4">
+                                    <p class="text-sm uppercase tracking-widest text-slate-500">Workshop</p>
+                                    <h4 class="text-lg font-semibold mt-1">Zero-downtime API Gateways</h4>
+                                    <p class="text-sm text-slate-500 mt-1">Lead by David Chen</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="text-center">
+                                    <p class="text-sm font-semibold">16:00</p>
+                                    <p class="text-xs text-slate-500">Forum</p>
+                                </div>
+                                <div class="flex-1 border-s border-slate-200 ps-4">
+                                    <p class="text-sm uppercase tracking-widest text-slate-500">Networking</p>
+                                    <h4 class="text-lg font-semibold mt-1">Partner Connect & Expo Tour</h4>
+                                    <p class="text-sm text-slate-500 mt-1">Meet 24 partner teams</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <!-- Upcoming Sessions -->
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <h3 class="font-bold text-gray-900 mb-4">Upcoming Sessions</h3>
+                    <article class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm flex flex-col gap-6">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xl font-semibold">Quick tasks</h3>
+                            <button class="text-sm text-slate-500 hover:text-indigo-500">Manage all</button>
+                        </div>
                         <div class="space-y-4">
-                            <div class="flex items-center gap-3 p-3 hover:bg-gray-50 rounded-lg transition">
-                                <div
-                                    class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xs">
-                                    09:00
-                                </div>
-                                <div>
-                                    <h4 class="font-medium text-sm text-gray-900">Opening Keynote</h4>
-                                    <p class="text-xs text-gray-500">Main Hall • Dr. Rostova</p>
-                                </div>
+                            <label class="flex items-start gap-3 text-sm">
+                                <input type="checkbox" class="mt-1 accent-indigo-600" checked>
+                                <span>
+                                    Confirm final catering headcount
+                                    <span class="block text-xs text-slate-500">Vendors expect reply by 12:00</span>
+                                </span>
+                            </label>
+                            <label class="flex items-start gap-3 text-sm">
+                                <input type="checkbox" class="mt-1 accent-indigo-600">
+                                <span>
+                                    Approve sponsor booth redesigns
+                                    <span class="block text-xs text-slate-500">Upload assets to signage system</span>
+                                </span>
+                            </label>
+                            <label class="flex items-start gap-3 text-sm">
+                                <input type="checkbox" class="mt-1 accent-indigo-600">
+                                <span>
+                                    Audit breakout room capacities
+                                    <span class="block text-xs text-slate-500">XR stage trending +140 RSVPs</span>
+                                </span>
+                            </label>
+                            <label class="flex items-start gap-3 text-sm">
+                                <input type="checkbox" class="mt-1 accent-indigo-600" checked>
+                                <span>
+                                    Publish push notification for day 2
+                                    <span class="block text-xs text-slate-500">Draft approved by marketing</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="rounded-2xl border border-dashed border-indigo-200 p-4 text-center">
+                            <p class="text-sm text-slate-500">Need to loop someone in?</p>
+                            <button class="mt-2 inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-indigo-50 text-indigo-600 text-sm font-medium">
+                                <i class="fas fa-user-plus"></i>
+                                Assign owner
+                            </button>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- Recent Registrations & Announcements -->
+                <section class="grid gap-6 xl:grid-cols-3">
+                    <article class="xl:col-span-2 bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+                        <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100">
+                            <div>
+                                <p class="text-sm text-slate-500">Latest activity</p>
+                                <h3 class="text-xl font-semibold">Registrations</h3>
                             </div>
-                            <div class="flex items-center gap-3 p-3 hover:bg-gray-50 rounded-lg transition">
-                                <div
-                                    class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-xs">
-                                    10:30
-                                </div>
-                                <div>
-                                    <h4 class="font-medium text-sm text-gray-900">Microservices Workshop</h4>
-                                    <p class="text-xs text-gray-500">Room A • David Chen</p>
-                                </div>
+                            <button class="text-sm text-indigo-500 font-medium">View all</button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full min-w-[640px] text-sm">
+                                <thead class="bg-slate-50 text-slate-500">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left font-medium">Name</th>
+                                        <th class="px-6 py-3 text-left font-medium">Ticket</th>
+                                        <th class="px-6 py-3 text-left font-medium">Company</th>
+                                        <th class="px-6 py-3 text-left font-medium">Date</th>
+                                        <th class="px-6 py-3 text-left font-medium">Status</th>
+                                        <th class="px-6 py-3 text-right font-medium">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100">
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="px-6 py-4 font-semibold">Alice Freeman</td>
+                                        <td class="px-6 py-4">Professional</td>
+                                        <td class="px-6 py-4 text-slate-500">Axiom Labs</td>
+                                        <td class="px-6 py-4 text-slate-500">Dec 18</td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600">Paid</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-right">
+                                            <button class="text-slate-400 hover:text-indigo-500">
+                                                <i class="fas fa-ellipsis"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="px-6 py-4 font-semibold">Bob Smith</td>
+                                        <td class="px-6 py-4">Student</td>
+                                        <td class="px-6 py-4 text-slate-500">NUST</td>
+                                        <td class="px-6 py-4 text-slate-500">Dec 18</td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-600">Pending</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-right">
+                                            <button class="text-slate-400 hover:text-indigo-500">
+                                                <i class="fas fa-ellipsis"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="px-6 py-4 font-semibold">Charlie Kim</td>
+                                        <td class="px-6 py-4">VIP</td>
+                                        <td class="px-6 py-4 text-slate-500">Polygon Works</td>
+                                        <td class="px-6 py-4 text-slate-500">Dec 17</td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600">Paid</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-right">
+                                            <button class="text-slate-400 hover:text-indigo-500">
+                                                <i class="fas fa-ellipsis"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="px-6 py-4 font-semibold">Daniel Vega</td>
+                                        <td class="px-6 py-4">Workshop</td>
+                                        <td class="px-6 py-4 text-slate-500">Northwind</td>
+                                        <td class="px-6 py-4 text-slate-500">Dec 17</td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-600">Manual</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-right">
+                                            <button class="text-slate-400 hover:text-indigo-500">
+                                                <i class="fas fa-ellipsis"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </article>
+
+                    <article class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm flex flex-col gap-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm text-slate-500">Broadcast center</p>
+                                <h3 class="text-xl font-semibold">Announcements</h3>
                             </div>
-                            <div class="flex items-center gap-3 p-3 hover:bg-gray-50 rounded-lg transition">
-                                <div
-                                    class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center text-green-600 font-bold text-xs">
-                                    12:00
-                                </div>
-                                <div>
-                                    <h4 class="font-medium text-sm text-gray-900">Networking Lunch</h4>
-                                    <p class="text-xs text-gray-500">Dining Hall</p>
-                                </div>
+                            <button class="text-sm text-indigo-500">Push update</button>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="rounded-2xl border border-indigo-100 p-4 bg-indigo-50/80">
+                                <p class="text-xs uppercase tracking-wide text-indigo-500">Now</p>
+                                <p class="text-sm font-semibold mt-1">Stage XR streaming link rotated.</p>
+                                <p class="text-xs text-indigo-500 mt-1">Share with remote attendees.</p>
+                            </div>
+                            <div class="rounded-2xl border border-amber-100 p-4 bg-amber-50">
+                                <p class="text-xs uppercase tracking-wide text-amber-500">13:45</p>
+                                <p class="text-sm font-semibold mt-1">Transport shuttle delays +12 min.</p>
+                                <p class="text-xs text-amber-600 mt-1">Ops to reroute VIP pickup.</p>
+                            </div>
+                            <div class="rounded-2xl border border-emerald-100 p-4 bg-emerald-50">
+                                <p class="text-xs uppercase tracking-wide text-emerald-500">09:10</p>
+                                <p class="text-sm font-semibold mt-1">Sustainability tour overbooked.</p>
+                                <p class="text-xs text-emerald-600 mt-1">Add 20 standby spots.</p>
                             </div>
                         </div>
-                        <button class="w-full mt-4 text-center text-sm text-blue-600 font-medium hover:underline">View
-                            Full Schedule</button>
-                    </div>
-                </div>
-
-                <!-- Recent Registrations Table -->
-                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                    <div class="p-6 border-b border-gray-100 flex justify-between items-center">
-                        <h3 class="font-bold text-gray-900">Recent Registrations</h3>
-                        <button class="text-sm text-blue-600 font-medium hover:underline">View All</button>
-                    </div>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left text-sm">
-                            <thead class="bg-gray-50 text-gray-500">
-                                <tr>
-                                    <th class="px-6 py-3 font-medium">Name</th>
-                                    <th class="px-6 py-3 font-medium">Ticket Type</th>
-                                    <th class="px-6 py-3 font-medium">Date</th>
-                                    <th class="px-6 py-3 font-medium">Status</th>
-                                    <th class="px-6 py-3 font-medium text-right">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-100">
-                                <tr class="hover:bg-gray-50 transition">
-                                    <td class="px-6 py-4 font-medium text-gray-900">Alice Freeman</td>
-                                    <td class="px-6 py-4">Professional</td>
-                                    <td class="px-6 py-4 text-gray-500">Oct 12, 2025</td>
-                                    <td class="px-6 py-4"><span
-                                            class="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold">Paid</span>
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <button class="text-gray-400 hover:text-blue-600"><i
-                                                class="fas fa-ellipsis-v"></i></button>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-gray-50 transition">
-                                    <td class="px-6 py-4 font-medium text-gray-900">Bob Smith</td>
-                                    <td class="px-6 py-4">Student</td>
-                                    <td class="px-6 py-4 text-gray-500">Oct 12, 2025</td>
-                                    <td class="px-6 py-4"><span
-                                            class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-bold">Pending</span>
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <button class="text-gray-400 hover:text-blue-600"><i
-                                                class="fas fa-ellipsis-v"></i></button>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-gray-50 transition">
-                                    <td class="px-6 py-4 font-medium text-gray-900">Charlie Kim</td>
-                                    <td class="px-6 py-4">VIP</td>
-                                    <td class="px-6 py-4 text-gray-500">Oct 11, 2025</td>
-                                    <td class="px-6 py-4"><span
-                                            class="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold">Paid</span>
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <button class="text-gray-400 hover:text-blue-600"><i
-                                                class="fas fa-ellipsis-v"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                        <div class="flex gap-3">
+                            <button
+                                class="flex-1 rounded-2xl border border-slate-200 py-2.5 text-sm font-medium hover:border-indigo-400">
+                                Draft bulletin
+                            </button>
+                            <button class="rounded-2xl bg-slate-900 text-white px-4 py-2.5 text-sm font-medium">
+                                Share link
+                            </button>
+                        </div>
+                    </article>
+                </section>
 
             </main>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <script src="js/rtl-toggle.js"></script>
     <script src="js/main.js"></script>
     <script>
-        // Dashboard Sidebar Logic
         document.addEventListener('DOMContentLoaded', () => {
             const sidebar = document.getElementById('sidebar');
-            const backdrop = document.getElementById('sidebar-backdrop');
             const toggleBtn = document.getElementById('sidebar-toggle');
+            const backdrop = document.getElementById('sidebar-backdrop');
+            const body = document.body;
 
-            if (sidebar && toggleBtn) {
-                toggleBtn.addEventListener('click', () => {
-                    sidebar.classList.toggle('hidden');
-                    sidebar.classList.toggle('-translate-x-full');
-                    if (backdrop) backdrop.classList.toggle('hidden');
-                });
+            const openSidebar = () => {
+                sidebar.classList.remove('hidden');
+                sidebar.classList.remove('-translate-x-full');
+                if (backdrop) backdrop.classList.remove('hidden');
+                body.classList.add('overflow-hidden');
+            };
 
-                if (backdrop) {
-                    backdrop.addEventListener('click', () => {
-                        sidebar.classList.add('hidden');
-                        sidebar.classList.add('-translate-x-full');
-                        backdrop.classList.add('hidden');
-                    });
+            const closeSidebar = () => {
+                sidebar.classList.add('-translate-x-full');
+                if (backdrop) backdrop.classList.add('hidden');
+                body.classList.remove('overflow-hidden');
+                setTimeout(() => {
+                    if (window.innerWidth < 768) sidebar.classList.add('hidden');
+                }, 250);
+            };
+
+            toggleBtn?.addEventListener('click', () => {
+                const isHidden = sidebar.classList.contains('hidden') || sidebar.classList.contains('-translate-x-full');
+                if (isHidden) {
+                    openSidebar();
+                } else {
+                    closeSidebar();
                 }
+            });
+
+            backdrop?.addEventListener('click', closeSidebar);
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('hidden', '-translate-x-full');
+                    body.classList.remove('overflow-hidden');
+                    backdrop?.classList.add('hidden');
+                } else {
+                    sidebar.classList.add('-translate-x-full');
+                    sidebar.classList.add('hidden');
+                }
+            });
+
+            const chartCanvas = document.getElementById('registrationChart');
+            if (chartCanvas) {
+                const ctx = chartCanvas.getContext('2d');
+                const gradient = ctx.createLinearGradient(0, 0, 0, 240);
+                gradient.addColorStop(0, 'rgba(99, 102, 241, 0.4)');
+                gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [{
+                            label: 'Registrations',
+                            data: [420, 512, 478, 610, 702, 689, 744],
+                            fill: true,
+                            tension: 0.4,
+                            backgroundColor: gradient,
+                            borderColor: '#4338ca',
+                            pointRadius: 0,
+                            borderWidth: 3
+                        }, {
+                            label: 'Check-ins',
+                            data: [180, 220, 260, 400, 520, 610, 640],
+                            tension: 0.4,
+                            borderColor: '#06b6d4',
+                            pointRadius: 0,
+                            borderWidth: 2,
+                            borderDash: [6, 4]
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                align: 'end',
+                                labels: {
+                                    usePointStyle: true,
+                                    color: '#475569'
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#0f172a',
+                                titleColor: '#fff',
+                                bodyColor: '#e2e8f0',
+                                padding: 12,
+                                mode: 'index',
+                                intersect: false
+                            }
+                        },
+                        scales: {
+                            x: {
+                                grid: { display: false },
+                                ticks: { color: '#94a3b8' }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                grid: { color: 'rgba(148, 163, 184, 0.2)' },
+                                ticks: { color: '#94a3b8' }
+                            }
+                        }
+                    }
+                });
+            }
+
+            const ticketsCanvas = document.getElementById('ticketBreakdownChart');
+            if (ticketsCanvas) {
+                new Chart(ticketsCanvas, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Website', 'Partners', 'On-site', 'Mobile app'],
+                        datasets: [{
+                            data: [46, 28, 12, 14],
+                            backgroundColor: ['#4338ca', '#06b6d4', '#f97316', '#0ea5e9'],
+                            borderWidth: 0,
+                            hoverOffset: 6
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: { usePointStyle: true, color: '#475569' }
+                            }
+                        },
+                        cutout: '65%',
+                        maintainAspectRatio: false
+                    }
+                });
+            }
+
+            const engagementCanvas = document.getElementById('engagementTrendChart');
+            if (engagementCanvas) {
+                const ctx = engagementCanvas.getContext('2d');
+                const gradient = ctx.createLinearGradient(0, 0, 0, 220);
+                gradient.addColorStop(0, 'rgba(14, 165, 233, 0.35)');
+                gradient.addColorStop(1, 'rgba(14, 165, 233, 0)');
+
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [{
+                            label: 'Occupancy %',
+                            data: [62, 68, 74, 81, 88, 79, 71],
+                            fill: true,
+                            backgroundColor: gradient,
+                            borderColor: '#0ea5e9',
+                            tension: 0.35,
+                            pointRadius: 0,
+                            borderWidth: 3
+                        }, {
+                            label: 'Capacity target',
+                            data: [70, 70, 70, 70, 70, 70, 70],
+                            borderColor: '#cbd5f5',
+                            borderWidth: 2,
+                            borderDash: [4, 6],
+                            pointRadius: 0,
+                            fill: false
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: { usePointStyle: true, color: '#475569' }
+                            }
+                        },
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: { display: false },
+                                ticks: { color: '#94a3b8' }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                suggestedMax: 100,
+                                grid: { color: 'rgba(148,163,184,0.2)' },
+                                ticks: { color: '#94a3b8', callback: value => `${value}%` }
+                            }
+                        }
+                    }
+                });
             }
         });
     </script>

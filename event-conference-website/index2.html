@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth dark">
+<html lang="en" dir="ltr" class="scroll-smooth dark overflow-x-hidden">
 
 <head>
     <meta charset="UTF-8">
@@ -92,7 +92,7 @@
     </style>
 </head>
 
-<body class="bg-gray-900 text-white font-sans antialiased selection:bg-purple-500 selection:text-white">
+<body class="bg-gray-900 text-white font-sans antialiased selection:bg-purple-500 selection:text-white overflow-x-hidden">
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 transition-all duration-300 bg-gray-900/50 backdrop-blur-lg border-b border-gray-800"
@@ -231,13 +231,6 @@
                 5,000+ developers, innovators, and leaders for the premier tech conference of 2025. Experience 3 days of
                 breakthrough insights.
             </p>
-            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up"
-                style="animation-delay: 0.6s; animation-fill-mode: both;"><a href="register.html"
-                    class="group relative px-8 py-4 bg-white text-gray-900 rounded-full font-bold text-lg overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"><span
-                        class="relative z-10 group-hover:text-purple-700 transition-colors">Get Tickets
-                        Now</span></a><a href="schedule.html"
-                    class="px-8 py-4 rounded-full border border-gray-500 text-white font-medium hover:bg-white/10 transition-all backdrop-blur-sm hover:scale-105 hover:border-white">View
-                    Schedule </a></div>
 
         </div>
         <!-- Floating Stats Bar -->
@@ -270,6 +263,29 @@
             </div>
         </div>
     </section>
+    <!-- Registration CTA -->
+    <section class="bg-gray-900 border-t border-b border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 py-16">
+            <div class="grid gap-10 lg:grid-cols-[2fr,1fr] items-center">
+                <div>
+                    <p class="text-sm font-semibold tracking-[0.3em] text-purple-300 uppercase mb-3">Secure your spot</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to experience TechSummit 2025?</h2>
+                    <p class="text-gray-400 text-lg">Lock in your pass and map the sessions you cannot miss before capacities fill up.</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="register.html"
+                        class="flex-1 text-center bg-white text-gray-900 font-semibold py-4 rounded-full shadow-lg shadow-white/10 transition hover:shadow-white/30 hover:-translate-y-0.5">
+                        Get Tickets Now
+                    </a>
+                    <a href="schedule.html"
+                        class="flex-1 text-center border border-gray-600 text-white font-semibold py-4 rounded-full hover:border-white hover:bg-white/5 transition">
+                        View Schedule
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Highlights (Vertical List Layout) -->
     <section class="py-24 bg-gray-900">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth">
+<html lang="en" dir="ltr" class="scroll-smooth overflow-x-hidden">
 
 <head>
     <meta charset="UTF-8">
@@ -83,7 +83,7 @@
     </style>
 </head>
 
-<body class="font-sans text-gray-800 antialiased selection:bg-blue-500 selection:text-white">
+<body class="font-sans text-gray-800 antialiased selection:bg-blue-500 selection:text-white overflow-x-hidden">
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 transition-all duration-300 bg-transparent" id="navbar">
@@ -184,7 +184,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    <section class="relative pt-32 pb-28 lg:pt-48 lg:pb-40 overflow-hidden">
         <div class="absolute inset-0 -z-10">
             <div class="absolute inset-0 bg-gray-50"></div>
             <div class="absolute top-0 end-0 w-1/2 h-full bg-blue-50/50 rounded-s-[100px] transform translate-x-20">
@@ -210,11 +210,11 @@
                         Join 5,000+ developers, innovators, and leaders for the premier tech conference of 2025.
                         Experience 3 days of breakthrough insights.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up"
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up relative z-10"
                         style="animation-delay: 0.6s; animation-fill-mode: both;">
                         <a href="register.html"
                             class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 bg-blue-600 rounded-full hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 active:scale-95">
-                            Get Tickets
+                            Get Tickets Now
                             <i class="fas fa-arrow-right ms-2 group-hover:translate-x-1 transition-transform"></i>
                         </a>
                         <a href="schedule.html"
@@ -268,7 +268,7 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="py-12 bg-blue-600 text-white relative overflow-hidden">
+    <section class="py-12 mt-10 lg:mt-16 bg-blue-600 text-white relative overflow-hidden">
         <div class="absolute top-0 start-0 w-full h-full overflow-hidden opacity-10">
             <div class="absolute -top-24 -start-24 w-96 h-96 rounded-full bg-white blur-3xl"></div>
             <div class="absolute top-1/2 end-0 w-64 h-64 rounded-full bg-purple-500 blur-3xl"></div>
@@ -433,6 +433,52 @@
                     </div>
                     <h3 class="text-xl font-bold text-gray-900">Michael Chang</h3>
                     <p class="text-blue-600 font-medium">Founder, StartupX</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ceremony Spotlight -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid gap-12 lg:grid-cols-2 items-center">
+                <div>
+                    <p class="text-sm font-semibold tracking-[0.3em] text-blue-500 uppercase mb-4">Signature Finale</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Ceremony &amp; Awards Night</h2>
+                    <p class="text-gray-600 mb-6">Close out TechSummit with a cinematic celebration. From live performances to
+                        heartfelt recognition moments, the evening captures the energy of the community in vivid color.</p>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-600 mt-1"><i class="fas fa-camera"></i></span>
+                            Immersive photo zones to capture your highlights.
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-600 mt-1"><i class="fas fa-trophy"></i></span>
+                            Honors across 8 innovation categories with live reveals.
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-600 mt-1"><i class="fas fa-music"></i></span>
+                            Live band, DJ interludes, and ambient lighting that adapts to the show.
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=800&q=80"
+                            alt="Audience cheering during ceremony" loading="lazy"
+                            class="rounded-3xl shadow-lg w-full h-56 object-cover">
+                        <img src="https://images.unsplash.com/photo-1503428593586-e225b39bddfe?auto=format&fit=crop&w=800&q=80"
+                            alt="Award trophy close-up" loading="lazy"
+                            class="rounded-3xl shadow-lg w-full h-56 object-cover">
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <img src="https://images.unsplash.com/photo-1520854223477-739952fc6632?auto=format&fit=crop&w=800&q=80"
+                            alt="Hosts on stage" loading="lazy"
+                            class="rounded-3xl shadow-lg w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
+                            alt="Evening gala dinner setup" loading="lazy"
+                            class="rounded-3xl shadow-lg w-full h-48 object-cover">
+                    </div>
                 </div>
             </div>
         </div>

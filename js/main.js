@@ -4,6 +4,7 @@
  */
 
 injectNavbar();
+injectFooter();
 
 document.addEventListener('DOMContentLoaded', () => {
     initMobileNav();
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCountdown();
     initSpeakerSlider();
     initMap();
+    handleBrokenImages();
 });
 
 /* ==========================================
@@ -48,6 +50,10 @@ function injectNavbar() {
     const registerBtnClasses = isActive(['register.html'])
         ? themeConfig.registerActive
         : themeConfig.registerDefault;
+
+    const signupBtnClasses = isActive(['signup.html'])
+        ? themeConfig.signupActive
+        : themeConfig.signupDefault;
 
     const navTemplate = `
         <nav class="fixed w-full z-50 transition-all duration-300 ${themeConfig.topClasses}" id="navbar" data-site-navbar="true" data-nav-theme="${themeConfig.name}" data-transparent-at-top="${transparentPref}" data-nav-top-class="${themeConfig.topClasses}" data-nav-scroll-class="${themeConfig.scrolledClasses}">
@@ -95,8 +101,8 @@ function injectNavbar() {
                         <a href="login.html" class="${desktopLinkClass(['login.html'])} hover:scale-105 transition-transform">
                             Log in
                         </a>
-                        <a href="register.html" class="${registerBtnClasses}">
-                            Register Now
+                        <a href="signup.html" class="${signupBtnClasses}">
+                            Sign Up
                         </a>
                         <button id="rtl-toggle" onclick="toggleRTL(event)" class="${themeConfig.rtlToggleDesktop}">
                             <i class="fas fa-globe text-lg"></i>
@@ -135,7 +141,7 @@ function injectNavbar() {
                     </div>
                     <div class="border-t ${themeConfig.mobileDivider} my-2 pt-2">
                         <a href="login.html" class="${mobileLinkClass(['login.html'])}">Log in</a>
-                        <a href="register.html" class="${themeConfig.mobileRegister}">Register Now</a>
+                        <a href="signup.html" class="${themeConfig.mobileSignup}">Sign Up</a>
                     </div>
                 </div>
             </div>
@@ -147,6 +153,69 @@ function injectNavbar() {
         existingNav.outerHTML = navTemplate.trim();
     } else {
         body.insertAdjacentHTML('afterbegin', navTemplate.trim());
+    }
+}
+
+function injectFooter() {
+    const body = document.body;
+    if (!body) return;
+
+    const currentYear = new Date().getFullYear();
+
+    const footerTemplate = `
+        <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800" data-site-footer="true">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-4 gap-8 mb-8">
+                    <div class="col-span-1">
+                        <a href="index.html" class="flex items-center gap-2 mb-4">
+                            <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white font-bold">TS</div>
+                            <span class="font-bold text-xl text-white">TechSummit</span>
+                        </a>
+                        <p class="text-sm text-gray-400">The premier technology conference for innovators and leaders.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="index.html" class="hover:text-blue-400 transition">Home</a></li>
+                            <li><a href="event-details.html" class="hover:text-blue-400 transition">About</a></li>
+                            <li><a href="schedule.html" class="hover:text-blue-400 transition">Schedule</a></li>
+                            <li><a href="contact.html" class="hover:text-blue-400 transition">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-4">Legal</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#" class="hover:text-blue-400 transition">Privacy Policy</a></li>
+                            <li><a href="#" class="hover:text-blue-400 transition">Terms of Service</a></li>
+                            <li><a href="#" class="hover:text-blue-400 transition">Code of Conduct</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-4">Connect</h4>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition text-white"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition text-white"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition text-white"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+                    <p>&copy; ${currentYear} TechSummit. All rights reserved.</p>
+                    <p>Designed for excellence.</p>
+                </div>
+            </div>
+        </footer>
+    `;
+
+    const existingFooter = document.querySelector('body > footer');
+    if (existingFooter) {
+        existingFooter.outerHTML = footerTemplate.trim();
+    } else {
+        body.insertAdjacentHTML('beforeend', footerTemplate.trim());
     }
 }
 
@@ -168,6 +237,8 @@ function getLightThemeConfig(transparent) {
         accentBorder: 'bg-blue-600',
         registerDefault: 'bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-blue-500/40 transform hover:-translate-y-1 hover:scale-105 active:scale-95',
         registerActive: 'bg-blue-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg',
+        signupDefault: 'bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-blue-500/40 transform hover:-translate-y-1 hover:scale-105 active:scale-95',
+        signupActive: 'bg-blue-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg',
         rtlToggleDesktop: 'text-gray-600 hover:text-blue-600 transition px-3 py-1 border border-gray-200 rounded-md text-sm hover:border-blue-300 hover:bg-blue-50',
         rtlToggleMobile: 'text-gray-500 hover:text-blue-600 font-bold border border-gray-200 rounded px-2 py-1 text-sm',
         mobileMenuButton: 'text-gray-600 hover:text-gray-900 focus:outline-none',
@@ -178,7 +249,8 @@ function getLightThemeConfig(transparent) {
         languageRow: 'flex items-center justify-between px-3 py-2 text-gray-700 font-medium bg-gray-50 rounded-md',
         languageButton: 'text-gray-700 hover:text-blue-600 font-bold border border-gray-200 rounded px-2 py-1 text-sm bg-white',
         mobileDivider: 'border-gray-100',
-        mobileRegister: 'block w-full text-center mt-2 bg-blue-600 text-white px-5 py-3 rounded-lg font-medium hover:bg-blue-700 shadow-md'
+        mobileRegister: 'block w-full text-center mt-2 bg-blue-600 text-white px-5 py-3 rounded-lg font-medium hover:bg-blue-700 shadow-md',
+        mobileSignup: 'block w-full text-center mt-2 bg-blue-600 text-white px-5 py-3 rounded-lg font-medium hover:bg-blue-700 shadow-md'
     };
 }
 
@@ -200,6 +272,8 @@ function getDarkThemeConfig(transparent) {
         accentBorder: 'bg-purple-500',
         registerDefault: 'bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-purple-500/40 transform hover:-translate-y-1 hover:scale-105 active:scale-95',
         registerActive: 'bg-purple-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg',
+        signupDefault: 'bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-purple-500/40 transform hover:-translate-y-1 hover:scale-105 active:scale-95',
+        signupActive: 'bg-purple-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg',
         rtlToggleDesktop: 'text-gray-300 hover:text-white transition px-3 py-1 border border-gray-700 rounded-md text-sm hover:border-purple-500 hover:bg-gray-800',
         rtlToggleMobile: 'text-gray-300 hover:text-white font-bold border border-gray-700 rounded px-2 py-1 text-sm',
         mobileMenuButton: 'text-gray-300 hover:text-white focus:outline-none',
@@ -210,7 +284,8 @@ function getDarkThemeConfig(transparent) {
         languageRow: 'flex items-center justify-between px-3 py-2 text-gray-300 font-medium bg-gray-800 rounded-md border border-gray-700',
         languageButton: 'text-gray-300 hover:text-white font-bold border border-gray-700 rounded px-2 py-1 text-sm bg-gray-900',
         mobileDivider: 'border-gray-800',
-        mobileRegister: 'block w-full text-center mt-2 bg-purple-600 text-white px-5 py-3 rounded-lg font-medium hover:bg-purple-700 shadow-md'
+        mobileRegister: 'block w-full text-center mt-2 bg-purple-600 text-white px-5 py-3 rounded-lg font-medium hover:bg-purple-700 shadow-md',
+        mobileSignup: 'block w-full text-center mt-2 bg-purple-600 text-white px-5 py-3 rounded-lg font-medium hover:bg-purple-700 shadow-md'
     };
 }
 
@@ -672,4 +747,25 @@ function initMap() {
             .bindPopup('Moscone Center<br>747 Howard St, San Francisco')
             .openPopup();
     }
+}
+
+function handleBrokenImages() {
+    const removeImage = (img) => {
+        const fallback = img.getAttribute('data-fallback-src');
+        if (fallback) {
+            img.src = fallback;
+            img.removeAttribute('data-fallback-src');
+        } else {
+            img.classList.add('opacity-0');
+            setTimeout(() => img.remove(), 200);
+        }
+    };
+
+    document.querySelectorAll('img:not([data-ignore-error-handler="true"])').forEach(img => {
+        if (img.complete && img.naturalWidth === 0) {
+            removeImage(img);
+        } else {
+            img.addEventListener('error', () => removeImage(img));
+        }
+    });
 }
