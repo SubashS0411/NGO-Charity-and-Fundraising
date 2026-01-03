@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function injectNavbar() {
     const body = document.body;
-    if (!body) return;
+    if (!body || body.dataset.customNav === 'true') return;
 
     const transparentPref = body.dataset.navTransparent === 'true';
     const requestedTheme = (body.dataset.navTheme || (document.documentElement.classList.contains('dark') ? 'dark' : 'light')).toLowerCase();
@@ -56,7 +56,7 @@ function injectNavbar() {
         : themeConfig.signupDefault;
 
     const navTemplate = `
-        <nav class="fixed w-full z-50 transition-all duration-300 ${themeConfig.topClasses}" id="navbar" data-site-navbar="true" data-nav-theme="${themeConfig.name}" data-transparent-at-top="${transparentPref}" data-nav-top-class="${themeConfig.topClasses}" data-nav-scroll-class="${themeConfig.scrolledClasses}">
+        <nav class="fixed w-full z-[9999] transition-all duration-300 ${themeConfig.topClasses}" id="navbar" data-site-navbar="true" data-nav-theme="${themeConfig.name}" data-transparent-at-top="${transparentPref}" data-nav-top-class="${themeConfig.topClasses}" data-nav-scroll-class="${themeConfig.scrolledClasses}">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20 items-center">
                     <div class="flex-shrink-0 flex items-center">
@@ -380,21 +380,29 @@ function initTabs() {
 
     tabGroups.forEach(group => {
         const tabs = group.querySelectorAll('[role="tab"]');
-        const panels = document.querySelectorAll('[role="tabpanel"]');
+        const panelIds = Array.from(tabs)
+            .map(tab => tab.getAttribute('aria-controls'))
+            .filter(Boolean);
+        const panels = panelIds
+            .map(id => document.getElementById(id))
+            .filter(Boolean);
+
+        const activeClasses = (group.dataset.tabActive || 'border-blue-600 text-blue-600').split(' ').filter(Boolean);
+        const inactiveClasses = (group.dataset.tabInactive || 'border-transparent text-gray-500').split(' ').filter(Boolean);
 
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
                 // Deactivate all tabs in this group
                 tabs.forEach(t => {
                     t.setAttribute('aria-selected', 'false');
-                    t.classList.remove('border-blue-600', 'text-blue-600');
-                    t.classList.add('border-transparent', 'text-gray-500');
+                    t.classList.remove(...activeClasses);
+                    t.classList.add(...inactiveClasses);
                 });
 
                 // Activate clicked tab
                 tab.setAttribute('aria-selected', 'true');
-                tab.classList.remove('border-transparent', 'text-gray-500');
-                tab.classList.add('border-blue-600', 'text-blue-600');
+                tab.classList.remove(...inactiveClasses);
+                tab.classList.add(...activeClasses);
 
                 // Hide all panels
                 panels.forEach(p => p.classList.add('hidden'));
@@ -488,7 +496,8 @@ function closeModal(modal) {
    ========================================== */
 
 function initForms() {
-    const forms = document.querySelectorAll('form:not(#register-form)'); // Exclude multi-step form
+    const forms = Array.from(document.querySelectorAll('form'))
+        .filter(form => form.dataset.nativeHandler !== 'true' && form.id !== 'register-form');
 
     forms.forEach(form => {
         form.addEventListener('submit', (e) => {
@@ -544,7 +553,7 @@ function initForms() {
 
     // Multi-step form logic
     const registerForm = document.getElementById('register-form');
-    if (registerForm) {
+    if (registerForm && registerForm.dataset.nativeHandler !== 'true') {
         initMultiStepForm(registerForm);
     }
 }

@@ -375,6 +375,40 @@
                             <span>Lowest: Lab 01</span>
                         </div>
                     </article>
+
+                    <article class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm flex flex-col gap-6 min-w-0">
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-sm text-slate-500">Venue flow</p>
+                                <h3 class="text-xl font-semibold">Check-ins by hour</h3>
+                            </div>
+                            <span class="text-xs px-3 py-1 rounded-full bg-slate-100 text-slate-600">Today</span>
+                        </div>
+                        <div class="w-full min-w-0">
+                            <canvas id="checkinsByHourChart" height="220" class="w-full"></canvas>
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-slate-500">
+                            <span>Doors open: 08:00</span>
+                            <span>Peak window: 10:00&ndash;12:00</span>
+                        </div>
+                    </article>
+
+                    <article class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm flex flex-col gap-6 min-w-0">
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-sm text-slate-500">Content</p>
+                                <h3 class="text-xl font-semibold">Top tracks</h3>
+                            </div>
+                            <span class="text-xs px-3 py-1 rounded-full bg-slate-100 text-slate-600">7 days</span>
+                        </div>
+                        <div class="w-full min-w-0">
+                            <canvas id="topTracksChart" height="220" class="w-full"></canvas>
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-slate-500">
+                            <span>Based on saves</span>
+                            <span>Updated hourly</span>
+                        </div>
+                    </article>
                 </section>
 
                 <!-- Schedule & Tasks -->
@@ -789,6 +823,66 @@
                                 grid: { color: 'rgba(148,163,184,0.2)' },
                                 ticks: { color: '#94a3b8', callback: value => `${value}%` }
                             }
+                        }
+                    }
+                });
+            }
+
+            const checkinsByHourCanvas = document.getElementById('checkinsByHourChart');
+            if (checkinsByHourCanvas) {
+                const ctx = checkinsByHourCanvas.getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00'],
+                        datasets: [
+                            {
+                                label: 'Check-ins',
+                                data: [120, 420, 680, 740, 610, 480, 390, 260],
+                                backgroundColor: 'rgba(99,102,241,0.25)',
+                                borderColor: '#4338ca',
+                                borderWidth: 1,
+                                borderRadius: 12
+                            }
+                        ]
+                    },
+                    options: {
+                        plugins: {
+                            legend: { position: 'bottom', labels: { usePointStyle: true, color: '#475569' } }
+                        },
+                        scales: {
+                            x: { grid: { display: false }, ticks: { color: '#94a3b8' } },
+                            y: { beginAtZero: true, grid: { color: 'rgba(148,163,184,0.2)' }, ticks: { color: '#94a3b8' } }
+                        }
+                    }
+                });
+            }
+
+            const topTracksCanvas = document.getElementById('topTracksChart');
+            if (topTracksCanvas) {
+                new Chart(topTracksCanvas, {
+                    type: 'bar',
+                    data: {
+                        labels: ['AI & ML', 'Cloud', 'Web', 'Security', 'Leadership'],
+                        datasets: [
+                            {
+                                label: 'Saves',
+                                data: [1840, 1420, 1210, 980, 760],
+                                backgroundColor: ['rgba(67,56,202,0.28)', 'rgba(6,182,212,0.28)', 'rgba(14,165,233,0.28)', 'rgba(249,115,22,0.28)', 'rgba(16,185,129,0.28)'],
+                                borderColor: ['#4338ca', '#06b6d4', '#0ea5e9', '#f97316', '#10b981'],
+                                borderWidth: 1,
+                                borderRadius: 12
+                            }
+                        ]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            x: { beginAtZero: true, grid: { color: 'rgba(148,163,184,0.2)' }, ticks: { color: '#94a3b8' } },
+                            y: { grid: { display: false }, ticks: { color: '#94a3b8' } }
                         }
                     }
                 });

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - TechSummit 2025</title>
+    <title>Login • TechSummit Signal Deck</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,7 +14,13 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
+                        sans: ['Outfit', 'sans-serif']
+                    },
+                    colors: {
+                        midnight: '#05060d',
+                        pulse: '#38bdf8',
+                        bloom: '#c084fc',
+                        ember: '#f97316'
                     }
                 }
             }
@@ -22,121 +28,171 @@
     </script>
 </head>
 
-<body class="font-sans text-gray-100 bg-slate-950 antialiased min-h-screen overflow-x-hidden overflow-y-auto relative pt-32 pb-16" data-nav-transparent="true" data-nav-theme="dark">
-
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute -top-24 -end-10 w-96 h-96 bg-blue-500/20 blur-[140px] rounded-full max-sm:w-48 max-sm:h-48"></div>
-        <div class="absolute top-24 -start-24 w-80 h-80 bg-purple-600/20 blur-[150px] rounded-full max-sm:w-40 max-sm:h-40"></div>
-        <div class="absolute bottom-0 end-1/3 w-48 h-48 bg-cyan-500/10 blur-3xl rounded-full"></div>
+<body class="font-sans bg-midnight text-gray-100 antialiased min-h-screen relative overflow-hidden pt-32 pb-20" data-nav-transparent="false" data-nav-theme="dark">
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute inset-x-0 top-0 h-80 bg-gradient-to-b from-pulse/40 via-transparent to-transparent blur-3xl"></div>
+        <div class="absolute -end-32 top-16 w-80 h-80 bg-bloom/25 blur-[160px]"></div>
+        <div class="absolute -start-28 bottom-24 w-96 h-96 bg-emerald-400/15 blur-[180px]"></div>
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0); background-size: 34px 34px;"></div>
     </div>
 
     <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="grid lg:grid-cols-2 gap-10 items-center">
-            <section class="space-y-8 text-center lg:text-start">
-                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/20 bg-white/5 text-xs font-semibold tracking-[0.35em] uppercase text-gray-200">
-                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                    Oct 15-17 • SF
+        <div class="grid lg:grid-cols-[1.1fr,0.9fr] gap-12 items-center min-h-[calc(100vh-10rem)]">
+            <section class="space-y-10">
+                <div class="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/5 px-5 py-2 text-xs font-semibold uppercase tracking-[0.4em]">
+                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Access console open
                 </div>
-                <h1 class="text-4xl lg:text-5xl font-black leading-tight text-white">
-                    Unlock your <span class="text-blue-300">TechSummit</span> control room
-                </h1>
-                <p class="text-lg text-gray-300 max-w-xl mx-auto lg:mx-0">Manage tickets, craft your custom schedule,
-                    and stay in sync with live announcements inside your personalized dashboard.</p>
-                <div class="grid sm:grid-cols-2 gap-4">
-                    <div class="rounded-2xl border border-white/15 bg-white/5 p-5 text-start">
-                        <p class="text-sm text-gray-400">Your status</p>
-                        <p class="text-3xl font-bold text-white">Standard Pass</p>
-                        <p class="text-xs uppercase tracking-[0.3em] text-blue-200 mt-2">Confirmed</p>
-                    </div>
-                    <div class="rounded-2xl border border-white/15 bg-white/5 p-5 text-start">
-                        <p class="text-sm text-gray-400">Saved sessions</p>
-                        <p class="text-3xl font-bold text-white">12</p>
-                        <p class="text-xs uppercase tracking-[0.3em] text-blue-200 mt-2">Ready to Sync</p>
-                    </div>
+                <div class="space-y-4">
+                    <p class="text-sm uppercase tracking-[0.5em] text-gray-400">Signal deck</p>
+                    <h1 class="text-4xl sm:text-5xl font-black leading-tight text-white">Plug back into your TechSummit ecosystem</h1>
+                    <p class="text-lg text-gray-300 max-w-2xl">Command your personal agenda, approve studio invites, push announcements to your team, and sync with concierge operations in seconds.</p>
                 </div>
-                <div class="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start text-sm text-gray-300">
-                    <div class="flex items-center gap-2"><i class="fas fa-shield-halved text-blue-300"></i> Secure SSO
-                        supported</div>
-                    <div class="flex items-center gap-2"><i class="fas fa-bolt text-blue-300"></i> Real-time schedule
-                        updates</div>
+
+                <div class="grid sm:grid-cols-3 gap-4">
+                    <article class="rounded-3xl border border-white/10 bg-white/5 p-5">
+                        <p class="text-4xl font-black text-white">4.2k</p>
+                        <p class="mt-1 text-xs uppercase tracking-[0.35em] text-gray-400">Live members</p>
+                    </article>
+                    <article class="rounded-3xl border border-white/10 bg-white/5 p-5">
+                        <p class="text-4xl font-black text-white">128</p>
+                        <p class="mt-1 text-xs uppercase tracking-[0.35em] text-gray-400">Global lounges</p>
+                    </article>
+                    <article class="rounded-3xl border border-white/10 bg-white/5 p-5">
+                        <p class="text-4xl font-black text-white">92%</p>
+                        <p class="mt-1 text-xs uppercase tracking-[0.35em] text-gray-400">Instant responses</p>
+                    </article>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-5 text-sm text-gray-300">
+                    <div class="rounded-3xl border border-white/10 bg-white/5 p-5 space-y-3">
+                        <p class="text-xs uppercase tracking-[0.45em] text-gray-400">What you get</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-3"><i class="fas fa-bolt text-pulse"></i> Real-time session sync</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-shield text-pulse"></i> Enforced passkey logins</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-satellite-dish text-pulse"></i> Concierge escalation lane</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-3xl border border-white/10 bg-white/5 p-5 space-y-3">
+                        <p class="text-xs uppercase tracking-[0.45em] text-gray-400">Need a seat?</p>
+                        <p class="text-sm text-gray-300">Haven&rsquo;t locked in a pass yet? Curate your TechSummit flow in three pulses.</p>
+                        <a href="register.html" class="inline-flex items-center gap-2 text-sm font-semibold text-pulse">Start registration <i class="fas fa-arrow-right text-xs rtl:rotate-180"></i></a>
+                    </div>
                 </div>
             </section>
 
-            <section class="bg-white rounded-3xl shadow-2xl border border-gray-100 p-8 relative overflow-hidden">
-                <div class="absolute -top-6 -end-6 w-32 h-32 bg-blue-100 rounded-full blur-3xl"></div>
-                <div class="relative">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white font-bold text-2xl flex items-center justify-center">TS</div>
-                        <div>
-                            <p class="text-sm text-gray-400 uppercase tracking-[0.4em]">Portal</p>
-                            <p class="text-xl font-semibold text-gray-900">TechSummit Login</p>
+            <section>
+                <div class="relative overflow-hidden rounded-[36px] border border-white/60 bg-white p-10 text-gray-900 shadow-2xl">
+                    <div class="absolute -top-12 end-10 h-40 w-40 rounded-full bg-pulse/15 blur-[140px]"></div>
+                    <div class="absolute -bottom-24 -start-12 h-52 w-52 rounded-full bg-bloom/15 blur-[160px]"></div>
+                    <div class="relative space-y-8">
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-xs uppercase tracking-[0.45em] text-gray-400">Secure login</p>
+                                <p class="mt-1 text-2xl font-semibold">Welcome back, organiser</p>
+                            </div>
+                            <div class="inline-flex items-center gap-2 rounded-full border border-gray-200 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
+                                <span class="h-2 w-2 rounded-full bg-green-500"></span>
+                                Online
+                            </div>
                         </div>
-                    </div>
-                    <h2 class="text-2xl font-bold text-gray-900">Welcome back</h2>
-                    <p class="text-sm text-gray-500 mt-1">No credentials? <a href="register.html"
-                            class="text-blue-600 font-semibold">Create your pass</a></p>
 
-                    <form id="login-form" class="space-y-6 mt-8">
-                        <div>
-                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email address</label>
-                            <div class="relative">
-                                <i class="fas fa-envelope text-gray-400 absolute start-4 top-1/2 -translate-y-1/2"></i>
-                                <input id="email" name="email" type="email" autocomplete="email" required
-                                    class="w-full border border-gray-200 rounded-2xl py-3 ps-11 pe-4 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400">
+                        <form id="login-form" data-native-handler="true" class="space-y-6">
+                            <div class="space-y-2">
+                                <label for="email" class="block text-sm font-semibold">Work email</label>
+                                <div class="relative">
+                                    <i class="fas fa-envelope absolute start-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                    <input id="email" name="email" type="email" autocomplete="email" required class="w-full rounded-2xl border border-gray-200 px-4 py-3 ps-12 text-gray-900 placeholder-gray-400 focus:border-pulse focus:ring-2 focus:ring-pulse" placeholder="you@studio.com">
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <label for="password" class="block text-sm font-semibold text-gray-700 mb-2">Password</label>
-                            <div class="relative">
-                                <i class="fas fa-lock text-gray-400 absolute start-4 top-1/2 -translate-y-1/2"></i>
-                                <input id="password" name="password" type="password" autocomplete="current-password" required
-                                    class="w-full border border-gray-200 rounded-2xl py-3 ps-11 pe-12 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400">
-                                <button type="button"
-                                    onclick="const p = document.getElementById('password'); p.type = p.type === 'password' ? 'text' : 'password';"
-                                    class="absolute inset-y-0 end-0 pe-4 flex items-center text-gray-400 hover:text-gray-600">
-                                    <i class="far fa-eye"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between text-sm">
-                            <label class="flex items-center gap-2 text-gray-600">
-                                <input id="remember-me" name="remember-me" type="checkbox"
-                                    class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-gray-300">
-                                Remember me
-                            </label>
-                            <a href="#" class="text-blue-600 font-semibold">Forgot password?</a>
-                        </div>
-                        <button type="submit"
-                            class="w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-600 text-white font-semibold py-3 shadow-lg shadow-blue-500/30 hover:bg-blue-700 transition">
-                            <i class="fas fa-arrow-right"></i> Sign in
-                        </button>
-                    </form>
 
-                    <div class="mt-6">
-                        <div class="relative">
-                            <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-gray-200"></div></div>
-                            <div class="relative flex justify-center text-xs font-semibold text-gray-400 uppercase tracking-[0.4em]">
-                                Or
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <label for="password" class="text-sm font-semibold">Password</label>
+                                    <button type="button" class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400 hover:text-gray-600">Use magic link</button>
+                                </div>
+                                <div class="relative">
+                                    <i class="fas fa-lock absolute start-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                    <input id="password" name="password" type="password" autocomplete="current-password" required class="w-full rounded-2xl border border-gray-200 px-4 py-3 ps-12 pe-12 text-gray-900 placeholder-gray-400 focus:border-pulse focus:ring-2 focus:ring-pulse" placeholder="••••••••">
+                                    <button type="button" aria-label="Toggle password visibility" class="absolute inset-y-0 end-0 pe-4 text-gray-400 hover:text-gray-600" onclick="const field = document.getElementById('password'); field.type = field.type === 'password' ? 'text' : 'password';">
+                                        <i class="far fa-eye"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="mt-6 grid grid-cols-2 gap-3">
-                            <button
-                                class="flex items-center justify-center gap-3 border border-gray-200 rounded-2xl py-2.5 text-sm font-semibold text-gray-600 hover:bg-gray-50 transition">
-                                <i class="fab fa-google text-lg text-red-500"></i> Google
+
+                            <div class="flex flex-wrap items-center justify-between gap-3 text-sm text-gray-500">
+                                <label class="inline-flex items-center gap-2">
+                                    <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 rounded text-pulse focus:ring-pulse border-gray-300">
+                                    Trust this device
+                                </label>
+                                <a href="#" class="font-semibold text-pulse">Reset access</a>
+                            </div>
+
+                            <button type="submit" class="w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-pulse via-bloom to-ember py-3 text-sm font-semibold uppercase tracking-[0.35em] text-white shadow-lg shadow-pulse/30 transition hover:opacity-90">
+                                <i class="fas fa-arrow-right"></i>
+                                Launch console
                             </button>
-                            <button
-                                class="flex items-center justify-center gap-3 border border-gray-200 rounded-2xl py-2.5 text-sm font-semibold text-gray-600 hover:bg-gray-50 transition">
-                                <i class="fab fa-linkedin text-lg text-blue-700"></i> LinkedIn
-                            </button>
+                        </form>
+
+                        <div class="space-y-4 text-sm text-gray-500">
+                            <div class="relative">
+                                <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-gray-200"></div></div>
+                                <div class="relative flex justify-center">
+                                    <span class="bg-white px-4 text-xs font-semibold uppercase tracking-[0.45em] text-gray-400">Or continue with</span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button class="flex items-center justify-center gap-3 rounded-2xl border border-gray-200 py-2.5 text-sm font-semibold text-gray-600 transition hover:bg-gray-50"><i class="fab fa-google text-lg text-red-500"></i> Google</button>
+                                <button class="flex items-center justify-center gap-3 rounded-2xl border border-gray-200 py-2.5 text-sm font-semibold text-gray-600 transition hover:bg-gray-50"><i class="fab fa-slack text-lg text-purple-500"></i> Slack</button>
+                            </div>
+                            <p class="text-center text-sm text-gray-500">Need a new seat? <a href="signup.html" class="font-semibold text-pulse">Create an account</a></p>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
+
+        <section class="mt-16 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8 text-sm text-gray-300">
+            <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                <div>
+                    <p class="text-xs uppercase tracking-[0.4em] text-gray-400">Trusted by</p>
+                    <p class="text-lg font-semibold text-white">Visionary teams coordinating across five continents</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-6 text-gray-400 tracking-[0.35em] uppercase text-xs">
+                    <span>Nova Labs</span>
+                    <span>OrbitX</span>
+                    <span>Codewave</span>
+                    <span>Altitude</span>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script src="js/rtl-toggle.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('login-form');
+            if (!form) return;
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const button = form.querySelector('button[type="submit"]');
+                if (!button) return;
+
+                const original = button.innerHTML;
+                button.disabled = true;
+                button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating';
+
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-check"></i> Console armed';
+                    setTimeout(() => {
+                        button.disabled = false;
+                        button.innerHTML = original;
+                    }, 1400);
+                }, 1800);
+            });
+        });
+    </script>
 </body>
 
 </html>

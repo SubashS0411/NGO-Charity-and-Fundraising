@@ -132,17 +132,17 @@
     </header>
 
     <!-- Filters & Search -->
-    <div class="bg-white border-b border-gray-200 sticky top-16 z-40 shadow-sm">
+    <div class="bg-white border-b border-gray-200 sticky top-20 z-40 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
                 <!-- Day Tabs -->
-                <div class="flex bg-gray-100 p-1 rounded-lg" role="tablist">
-                    <button class="px-6 py-2 rounded-md bg-white text-blue-600 shadow-sm font-medium text-sm transition"
-                        role="tab" aria-selected="true">Day 1 (Oct 15)</button>
-                    <button class="px-6 py-2 rounded-md text-gray-600 hover:bg-gray-200 font-medium text-sm transition"
-                        role="tab" aria-selected="false">Day 2 (Oct 16)</button>
-                    <button class="px-6 py-2 rounded-md text-gray-600 hover:bg-gray-200 font-medium text-sm transition"
-                        role="tab" aria-selected="false">Day 3 (Oct 17)</button>
+                <div class="flex flex-wrap gap-2" role="tablist">
+                    <button class="px-4 py-2 border-b-2 border-blue-600 text-blue-600 font-semibold text-sm transition"
+                        role="tab" aria-selected="true" aria-controls="schedule-day1">Day 1 (Oct 15)</button>
+                    <button class="px-4 py-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-semibold text-sm transition"
+                        role="tab" aria-selected="false" aria-controls="schedule-day2">Day 2 (Oct 16)</button>
+                    <button class="px-4 py-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-semibold text-sm transition"
+                        role="tab" aria-selected="false" aria-controls="schedule-day3">Day 3 (Oct 17)</button>
                 </div>
 
                 <!-- Search & Filter -->
@@ -180,10 +180,10 @@
 
     <!-- Schedule Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="space-y-6">
+        <div id="schedule-day1" role="tabpanel" class="space-y-6">
 
             <!-- 09:00 AM -->
-            <div class="flex flex-col md:flex-row gap-6 group">
+            <div class="flex flex-col md:flex-row gap-6 group" data-schedule-item data-search="09:00 keynote future ai enterprise elena rostova main hall">
                 <div class="md:w-32 flex-shrink-0">
                     <span class="text-xl font-bold text-gray-900">09:00 AM</span>
                     <span class="text-sm text-gray-500 block">60 mins</span>
@@ -213,7 +213,7 @@
             </div>
 
             <!-- 10:30 AM -->
-            <div class="flex flex-col md:flex-row gap-6 group">
+            <div class="flex flex-col md:flex-row gap-6 group" data-schedule-item data-search="10:30 workshop scalable microservices david chen panel cybersecurity 2025 room a room b">
                 <div class="md:w-32 flex-shrink-0">
                     <span class="text-xl font-bold text-gray-900">10:30 AM</span>
                     <span class="text-sm text-gray-500 block">45 mins</span>
@@ -268,7 +268,7 @@
             </div>
 
             <!-- 12:00 PM -->
-            <div class="flex flex-col md:flex-row gap-6">
+            <div class="flex flex-col md:flex-row gap-6" data-schedule-item data-search="12:00 networking lunch main dining hall">
                 <div class="md:w-32 flex-shrink-0">
                     <span class="text-xl font-bold text-gray-400">12:00 PM</span>
                     <span class="text-sm text-gray-400 block">60 mins</span>
@@ -284,7 +284,7 @@
             </div>
 
             <!-- 01:00 PM -->
-            <div class="flex flex-col md:flex-row gap-6 group">
+            <div class="flex flex-col md:flex-row gap-6 group" data-schedule-item data-search="01:00 talk ux design next billion users lisa kumar room c">
                 <div class="md:w-32 flex-shrink-0">
                     <span class="text-xl font-bold text-gray-900">01:00 PM</span>
                     <span class="text-sm text-gray-500 block">45 mins</span>
@@ -312,6 +312,331 @@
                 </div>
             </div>
 
+            <!-- 02:15 PM -->
+            <div class="flex flex-col md:flex-row gap-6 group" data-schedule-item data-search="02:15 breakout serverless production data pipelines mlops leadership design systems rooms d e">
+                <div class="md:w-32 flex-shrink-0">
+                    <span class="text-xl font-bold text-gray-900">02:15 PM</span>
+                    <span class="text-sm text-gray-500 block">45 mins</span>
+                </div>
+                <div class="flex-1 grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl border-s-4 border-sky-500 shadow-sm hover:shadow-md transition cursor-pointer">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="inline-block px-2 py-1 bg-sky-100 text-sky-700 text-xs font-bold rounded uppercase tracking-wide">Breakout</span>
+                            <button class="text-gray-400 hover:text-blue-600"><i class="far fa-star"></i></button>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Serverless in Production: What Actually Works</h3>
+                        <p class="text-gray-600 text-sm line-clamp-2">Latency, cold starts, and cost controls from teams running at scale.</p>
+                        <div class="flex items-center gap-4 mt-4">
+                            <div class="flex items-center gap-2">
+                                <img src="https://ui-avatars.com/api/?name=Priya+S&background=random" class="w-8 h-8 rounded-full" alt="Speaker">
+                                <span class="text-sm font-medium text-gray-700">Priya Sharma</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><i class="fas fa-map-marker-alt"></i> Room D</div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border-s-4 border-indigo-500 shadow-sm hover:shadow-md transition cursor-pointer">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="inline-block px-2 py-1 bg-indigo-100 text-indigo-700 text-xs font-bold rounded uppercase tracking-wide">Talk</span>
+                            <button class="text-gray-400 hover:text-blue-600"><i class="far fa-star"></i></button>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">MLOps for Teams: From Notebook to Pipeline</h3>
+                        <p class="text-gray-600 text-sm line-clamp-2">A pragmatic playbook for versioning, monitoring, and shipping models safely.</p>
+                        <div class="flex items-center gap-4 mt-4">
+                            <div class="flex items-center gap-2">
+                                <img src="https://ui-avatars.com/api/?name=Alex+N&background=random" class="w-8 h-8 rounded-full" alt="Speaker">
+                                <span class="text-sm font-medium text-gray-700">Alex Nguyen</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><i class="fas fa-map-marker-alt"></i> Room E</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 03:30 PM -->
+            <div class="flex flex-col md:flex-row gap-6" data-schedule-item data-search="03:30 coffee break expo hall">
+                <div class="md:w-32 flex-shrink-0">
+                    <span class="text-xl font-bold text-gray-400">03:30 PM</span>
+                    <span class="text-sm text-gray-400 block">30 mins</span>
+                </div>
+                <div class="flex-1 bg-gray-100 p-6 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500">
+                    <div class="text-center">
+                        <i class="fas fa-mug-hot text-2xl mb-2"></i>
+                        <h3 class="font-bold">Coffee Break</h3>
+                        <p class="text-sm">Expo Hall</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 04:00 PM -->
+            <div class="flex flex-col md:flex-row gap-6 group" data-schedule-item data-search="04:00 fireside chat product growth metrics north star auditorium">
+                <div class="md:w-32 flex-shrink-0">
+                    <span class="text-xl font-bold text-gray-900">04:00 PM</span>
+                    <span class="text-sm text-gray-500 block">50 mins</span>
+                </div>
+                <div class="flex-1 bg-white p-6 rounded-xl border-s-4 border-teal-500 shadow-sm hover:shadow-md transition cursor-pointer">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="inline-block px-2 py-1 bg-teal-100 text-teal-700 text-xs font-bold rounded uppercase tracking-wide">Fireside</span>
+                        <button class="text-gray-400 hover:text-blue-600"><i class="far fa-star"></i></button>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition">From 0 to Product-Market Fit</h3>
+                    <p class="text-gray-600 mb-4 line-clamp-2">A candid discussion on experimentation, metrics, and building durable growth loops.</p>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                        <div class="flex items-center gap-2">
+                            <img src="https://ui-avatars.com/api/?name=Jordan+M&background=random" class="w-8 h-8 rounded-full" alt="Speaker">
+                            <span class="text-sm font-medium text-gray-700">Jordan Miles</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-500"><i class="fas fa-map-marker-alt"></i> Auditorium</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 05:15 PM -->
+            <div class="flex flex-col md:flex-row gap-6" data-schedule-item data-search="05:15 networking reception rooftop terrace">
+                <div class="md:w-32 flex-shrink-0">
+                    <span class="text-xl font-bold text-gray-400">05:15 PM</span>
+                    <span class="text-sm text-gray-400 block">75 mins</span>
+                </div>
+                <div class="flex-1 bg-gray-100 p-6 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500">
+                    <div class="text-center">
+                        <i class="fas fa-handshake text-2xl mb-2"></i>
+                        <h3 class="font-bold">Welcome Reception</h3>
+                        <p class="text-sm">Rooftop Terrace</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="schedule-day2" role="tabpanel" class="space-y-6 hidden">
+            <div class="flex flex-col md:flex-row gap-6 group" data-schedule-item data-search="09:00 keynote cloud strategy cost optimization main hall">
+                <div class="md:w-32 flex-shrink-0">
+                    <span class="text-xl font-bold text-gray-900">09:00 AM</span>
+                    <span class="text-sm text-gray-500 block">50 mins</span>
+                </div>
+                <div class="flex-1 bg-white p-6 rounded-xl border-s-4 border-blue-600 shadow-sm hover:shadow-md transition cursor-pointer">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="inline-block px-2 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded uppercase tracking-wide">Keynote</span>
+                        <button class="text-gray-400 hover:text-blue-600"><i class="far fa-star"></i></button>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Cloud Strategy: Reliability Without the Bill Shock</h3>
+                    <p class="text-gray-600 mb-4 line-clamp-2">Patterns for cost-aware architecture, FinOps collaboration, and keeping reliability high.</p>
+                    <div class="flex items-center gap-4">
+                        <div class="flex items-center gap-2">
+                            <img src="https://ui-avatars.com/api/?name=Maria+G&background=random" class="w-8 h-8 rounded-full" alt="Speaker">
+                            <span class="text-sm font-medium text-gray-700">Maria Gomez</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-500"><i class="fas fa-map-marker-alt"></i> Main Hall</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-6 group" data-schedule-item data-search="10:15 workshop threat modeling panel design systems room a room b">
+                <div class="md:w-32 flex-shrink-0">
+                    <span class="text-xl font-bold text-gray-900">10:15 AM</span>
+                    <span class="text-sm text-gray-500 block">60 mins</span>
+                </div>
+                <div class="flex-1 grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl border-s-4 border-emerald-600 shadow-sm hover:shadow-md transition cursor-pointer">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="inline-block px-2 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded uppercase tracking-wide">Workshop</span>
+                            <button class="text-gray-400 hover:text-blue-600"><i class="far fa-star"></i></button>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Threat Modeling for Modern Apps</h3>
+                        <p class="text-gray-600 text-sm line-clamp-2">A guided exercise you can reuse with your team next week.</p>
+                        <div class="flex items-center gap-4 mt-4">
+                            <div class="flex items-center gap-2">
+                                <img src="https://ui-avatars.com/api/?name=Kenji+I&background=random" class="w-8 h-8 rounded-full" alt="Speaker">
+                                <span class="text-sm font-medium text-gray-700">Kenji Ito</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><i class="fas fa-map-marker-alt"></i> Room A</div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border-s-4 border-purple-600 shadow-sm hover:shadow-md transition cursor-pointer">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="inline-block px-2 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded uppercase tracking-wide">Panel</span>
+                            <button class="text-gray-400 hover:text-blue-600"><i class="far fa-star"></i></button>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Design Systems at Scale</h3>
+                        <p class="text-gray-600 text-sm line-clamp-2">Maintaining velocity while keeping UX consistent across teams.</p>
+                        <div class="flex items-center gap-4 mt-4">
+                            <div class="flex items-center gap-2">
+                                <div class="flex -space-x-2 rtl:space-x-reverse">
+                                    <img src="https://ui-avatars.com/api/?name=Aya+H&background=random" class="w-8 h-8 rounded-full border-2 border-white" alt="Speaker">
+                                    <img src="https://ui-avatars.com/api/?name=Sam+P&background=random" class="w-8 h-8 rounded-full border-2 border-white" alt="Speaker">
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">Panelists</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><i class="fas fa-map-marker-alt"></i> Room B</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-6" data-schedule-item data-search="12:00 lunch">
+                <div class="md:w-32 flex-shrink-0">
+                    <span class="text-xl font-bold text-gray-400">12:00 PM</span>
+                    <span class="text-sm text-gray-400 block">60 mins</span>
+                </div>
+                <div class="flex-1 bg-gray-100 p-6 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500">
+                    <div class="text-center">
+                        <i class="fas fa-utensils text-2xl mb-2"></i>
+                        <h3 class="font-bold">Networking Lunch</h3>
+                        <p class="text-sm">Main Dining Hall</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-6 group" data-schedule-item data-search="01:15 talk observability tracing slog room c">
+                <div class="md:w-32 flex-shrink-0">
+                    <span class="text-xl font-bold text-gray-900">01:15 PM</span>
+                    <span class="text-sm text-gray-500 block">45 mins</span>
+                </div>
+                <div class="flex-1 bg-white p-6 rounded-xl border-s-4 border-orange-500 shadow-sm hover:shadow-md transition cursor-pointer">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="inline-block px-2 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded uppercase tracking-wide">Talk</span>
+                        <button class="text-gray-400 hover:text-blue-600"><i class="far fa-star"></i></button>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Observability That Engineers Actually Use</h3>
+                    <p class="text-gray-600 mb-4 line-clamp-2">Dashboards, tracing, and alerting that reduce noise and speed up recovery.</p>
+                    <div class="flex items-center gap-4">
+                        <div class="flex items-center gap-2">
+                            <img src="https://ui-avatars.com/api/?name=Taylor+R&background=random" class="w-8 h-8 rounded-full" alt="Speaker">
+                            <span class="text-sm font-medium text-gray-700">Taylor Reed</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-500"><i class="fas fa-map-marker-alt"></i> Room C</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-6" data-schedule-item data-search="03:00 expo networking">
+                <div class="md:w-32 flex-shrink-0">
+                    <span class="text-xl font-bold text-gray-400">03:00 PM</span>
+                    <span class="text-sm text-gray-400 block">90 mins</span>
+                </div>
+                <div class="flex-1 bg-gray-100 p-6 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500">
+                    <div class="text-center">
+                        <i class="fas fa-store text-2xl mb-2"></i>
+                        <h3 class="font-bold">Expo + Networking</h3>
+                        <p class="text-sm">Sponsor Hall</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="schedule-day3" role="tabpanel" class="space-y-6 hidden">
+            <div class="flex flex-col md:flex-row gap-6 group" data-schedule-item data-search="09:00 keynote careers leadership building teams main hall">
+                <div class="md:w-32 flex-shrink-0">
+                    <span class="text-xl font-bold text-gray-900">09:00 AM</span>
+                    <span class="text-sm text-gray-500 block">45 mins</span>
+                </div>
+                <div class="flex-1 bg-white p-6 rounded-xl border-s-4 border-blue-600 shadow-sm hover:shadow-md transition cursor-pointer">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="inline-block px-2 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded uppercase tracking-wide">Keynote</span>
+                        <button class="text-gray-400 hover:text-blue-600"><i class="far fa-star"></i></button>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Building High-Trust Teams</h3>
+                    <p class="text-gray-600 mb-4 line-clamp-2">How strong operating rhythms, clarity, and empathy unlock execution at speed.</p>
+                    <div class="flex items-center gap-4">
+                        <div class="flex items-center gap-2">
+                            <img src="https://ui-avatars.com/api/?name=Fatima+O&background=random" class="w-8 h-8 rounded-full" alt="Speaker">
+                            <span class="text-sm font-medium text-gray-700">Fatima Omar</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-500"><i class="fas fa-map-marker-alt"></i> Main Hall</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-6 group" data-schedule-item data-search="10:00 workshop api design panel ai governance room a room b">
+                <div class="md:w-32 flex-shrink-0">
+                    <span class="text-xl font-bold text-gray-900">10:00 AM</span>
+                    <span class="text-sm text-gray-500 block">60 mins</span>
+                </div>
+                <div class="flex-1 grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl border-s-4 border-sky-500 shadow-sm hover:shadow-md transition cursor-pointer">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="inline-block px-2 py-1 bg-sky-100 text-sky-700 text-xs font-bold rounded uppercase tracking-wide">Workshop</span>
+                            <button class="text-gray-400 hover:text-blue-600"><i class="far fa-star"></i></button>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">API Design for Developer Happiness</h3>
+                        <p class="text-gray-600 text-sm line-clamp-2">Naming, versioning, and ergonomics that reduce friction for your users.</p>
+                        <div class="flex items-center gap-4 mt-4">
+                            <div class="flex items-center gap-2">
+                                <img src="https://ui-avatars.com/api/?name=Hannah+L&background=random" class="w-8 h-8 rounded-full" alt="Speaker">
+                                <span class="text-sm font-medium text-gray-700">Hannah Lee</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><i class="fas fa-map-marker-alt"></i> Room A</div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border-s-4 border-purple-600 shadow-sm hover:shadow-md transition cursor-pointer">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="inline-block px-2 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded uppercase tracking-wide">Panel</span>
+                            <button class="text-gray-400 hover:text-blue-600"><i class="far fa-star"></i></button>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">AI Governance & Responsible Shipping</h3>
+                        <p class="text-gray-600 text-sm line-clamp-2">Policy meets practice: guardrails that let teams move fast safely.</p>
+                        <div class="flex items-center gap-4 mt-4">
+                            <div class="flex items-center gap-2">
+                                <div class="flex -space-x-2 rtl:space-x-reverse">
+                                    <img src="https://ui-avatars.com/api/?name=Noah+K&background=random" class="w-8 h-8 rounded-full border-2 border-white" alt="Speaker">
+                                    <img src="https://ui-avatars.com/api/?name=Rina+S&background=random" class="w-8 h-8 rounded-full border-2 border-white" alt="Speaker">
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">Panelists</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><i class="fas fa-map-marker-alt"></i> Room B</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-6" data-schedule-item data-search="12:00 lunch">
+                <div class="md:w-32 flex-shrink-0">
+                    <span class="text-xl font-bold text-gray-400">12:00 PM</span>
+                    <span class="text-sm text-gray-400 block">60 mins</span>
+                </div>
+                <div class="flex-1 bg-gray-100 p-6 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500">
+                    <div class="text-center">
+                        <i class="fas fa-utensils text-2xl mb-2"></i>
+                        <h3 class="font-bold">Networking Lunch</h3>
+                        <p class="text-sm">Main Dining Hall</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-6 group" data-schedule-item data-search="01:30 closing keynote future of open source main hall">
+                <div class="md:w-32 flex-shrink-0">
+                    <span class="text-xl font-bold text-gray-900">01:30 PM</span>
+                    <span class="text-sm text-gray-500 block">45 mins</span>
+                </div>
+                <div class="flex-1 bg-white p-6 rounded-xl border-s-4 border-orange-500 shadow-sm hover:shadow-md transition cursor-pointer">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="inline-block px-2 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded uppercase tracking-wide">Closing</span>
+                        <button class="text-gray-400 hover:text-blue-600"><i class="far fa-star"></i></button>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">The Next Decade of Open Source</h3>
+                    <p class="text-gray-600 mb-4 line-clamp-2">Sustainability, security, and the community systems that power modern software.</p>
+                    <div class="flex items-center gap-4">
+                        <div class="flex items-center gap-2">
+                            <img src="https://ui-avatars.com/api/?name=Chris+V&background=random" class="w-8 h-8 rounded-full" alt="Speaker">
+                            <span class="text-sm font-medium text-gray-700">Chris Vega</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-500"><i class="fas fa-map-marker-alt"></i> Main Hall</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-6" data-schedule-item data-search="03:00 closing party">
+                <div class="md:w-32 flex-shrink-0">
+                    <span class="text-xl font-bold text-gray-400">03:00 PM</span>
+                    <span class="text-sm text-gray-400 block">60 mins</span>
+                </div>
+                <div class="flex-1 bg-gray-100 p-6 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500">
+                    <div class="text-center">
+                        <i class="fas fa-music text-2xl mb-2"></i>
+                        <h3 class="font-bold">Community Wrap-up</h3>
+                        <p class="text-sm">Networking Lounge</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -335,6 +660,23 @@
                     searchInput.value = query;
                     searchInput.focus();
                 }
+            }
+
+            const searchInput = document.querySelector('input[placeholder="Search sessions..."]');
+            const filterSessions = () => {
+                const term = (searchInput?.value || '').trim().toLowerCase();
+                const activePanel = document.querySelector('[role="tabpanel"]:not(.hidden)');
+                if (!activePanel) return;
+
+                activePanel.querySelectorAll('[data-schedule-item]').forEach(item => {
+                    const haystack = (item.getAttribute('data-search') || '').toLowerCase();
+                    const isMatch = !term || haystack.includes(term);
+                    item.classList.toggle('hidden', !isMatch);
+                });
+            };
+
+            if (searchInput) {
+                searchInput.addEventListener('input', filterSessions);
             }
         });
     </script>

@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function injectNavbar() {
     const body = document.body;
-    if (!body) return;
+    if (!body || body.dataset.customNav === 'true') return;
 
     const transparentPref = body.dataset.navTransparent === 'true';
     const requestedTheme = (body.dataset.navTheme || (document.documentElement.classList.contains('dark') ? 'dark' : 'light')).toLowerCase();
@@ -54,7 +54,7 @@ function injectNavbar() {
         : themeConfig.signupDefault;
 
     const navTemplate = `
-        <nav class="fixed w-full z-50 transition-all duration-300 ${themeConfig.topClasses}" id="navbar" data-site-navbar="true" data-nav-theme="${themeConfig.name}" data-transparent-at-top="${transparentPref}" data-nav-top-class="${themeConfig.topClasses}" data-nav-scroll-class="${themeConfig.scrolledClasses}">
+        <nav class="fixed w-full z-[9999] transition-all duration-300 ${themeConfig.topClasses}" id="navbar" data-site-navbar="true" data-nav-theme="${themeConfig.name}" data-transparent-at-top="${transparentPref}" data-nav-top-class="${themeConfig.topClasses}" data-nav-scroll-class="${themeConfig.scrolledClasses}">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20 items-center">
                     <div class="flex-shrink-0 flex items-center">
@@ -207,6 +207,8 @@ function getDarkThemeConfig(transparent) {
         accentBorder: 'bg-purple-500',
         registerDefault: 'bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-purple-500/40 transform hover:-translate-y-1 hover:scale-105 active:scale-95',
         registerActive: 'bg-purple-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg',
+        signupDefault: 'bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-purple-500/40 transform hover:-translate-y-1 hover:scale-105 active:scale-95',
+        signupActive: 'bg-purple-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg',
         rtlToggleDesktop: 'text-gray-300 hover:text-white transition px-3 py-1 border border-gray-700 rounded-md text-sm hover:border-purple-500 hover:bg-gray-800',
         rtlToggleMobile: 'text-gray-300 hover:text-white font-bold border border-gray-700 rounded px-2 py-1 text-sm',
         mobileMenuButton: 'text-gray-300 hover:text-white focus:outline-none',
@@ -217,7 +219,8 @@ function getDarkThemeConfig(transparent) {
         languageRow: 'flex items-center justify-between px-3 py-2 text-gray-300 font-medium bg-gray-800 rounded-md border border-gray-700',
         languageButton: 'text-gray-300 hover:text-white font-bold border border-gray-700 rounded px-2 py-1 text-sm bg-gray-900',
         mobileDivider: 'border-gray-800',
-        mobileRegister: 'block w-full text-center mt-2 bg-purple-600 text-white px-5 py-3 rounded-lg font-medium hover:bg-purple-700 shadow-md'
+        mobileRegister: 'block w-full text-center mt-2 bg-purple-600 text-white px-5 py-3 rounded-lg font-medium hover:bg-purple-700 shadow-md',
+        mobileSignup: 'block w-full text-center mt-2 bg-purple-600 text-white px-5 py-3 rounded-lg font-medium hover:bg-purple-700 shadow-md'
     };
 }
 
@@ -312,21 +315,29 @@ function initTabs() {
 
     tabGroups.forEach(group => {
         const tabs = group.querySelectorAll('[role="tab"]');
-        const panels = document.querySelectorAll('[role="tabpanel"]');
+        const panelIds = Array.from(tabs)
+            .map(tab => tab.getAttribute('aria-controls'))
+            .filter(Boolean);
+        const panels = panelIds
+            .map(id => document.getElementById(id))
+            .filter(Boolean);
+
+        const activeClasses = (group.dataset.tabActive || 'border-blue-600 text-blue-600').split(' ').filter(Boolean);
+        const inactiveClasses = (group.dataset.tabInactive || 'border-transparent text-gray-500').split(' ').filter(Boolean);
 
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
                 // Deactivate all tabs in this group
                 tabs.forEach(t => {
                     t.setAttribute('aria-selected', 'false');
-                    t.classList.remove('border-blue-600', 'text-blue-600');
-                    t.classList.add('border-transparent', 'text-gray-500');
+                    t.classList.remove(...activeClasses);
+                    t.classList.add(...inactiveClasses);
                 });
 
                 // Activate clicked tab
                 tab.setAttribute('aria-selected', 'true');
-                tab.classList.remove('border-transparent', 'text-gray-500');
-                tab.classList.add('border-blue-600', 'text-blue-600');
+                tab.classList.remove(...inactiveClasses);
+                tab.classList.add(...activeClasses);
 
                 // Hide all panels
                 panels.forEach(p => p.classList.add('hidden'));

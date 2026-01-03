@@ -65,4 +65,18 @@ function setDirection(dir) {
             mobileToggleBtn.classList.remove('text-blue-600');
         }
     }
+
+    closeMobileExperiences();
+    document.dispatchEvent(new CustomEvent('directionchange', { detail: { dir } }));
+}
+
+function closeMobileExperiences() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileToggle = document.getElementById('mobile-menu-btn');
+    if (mobileMenu) {
+        mobileMenu.classList.add('hidden');
+        if (mobileToggle) {
+            mobileToggle.setAttribute('aria-expanded', 'false');
+        }
+    }
 }

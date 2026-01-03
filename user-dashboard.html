@@ -195,6 +195,62 @@
                         </div>
                     </div>
 
+                    <!-- Insights (4 more graphs) -->
+                    <div class="bg-white rounded-3xl p-6 sm:p-8 shadow border border-slate-100">
+                        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                            <div>
+                                <p class="text-sm text-slate-500">Insights</p>
+                                <h3 class="text-2xl font-bold text-slate-900">Your event analytics</h3>
+                                <p class="text-slate-500 mt-2 max-w-2xl">A quick snapshot of what you're planning to attend, where you're investing time, and how your interests are trending.</p>
+                            </div>
+                            <a href="schedule.html" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-slate-900 text-white font-semibold hover:bg-slate-800 transition">
+                                Refine schedule <i class="fas fa-arrow-right rtl:rotate-180"></i>
+                            </a>
+                        </div>
+
+                        <div class="mt-8 grid md:grid-cols-2 gap-6">
+                            <div class="rounded-3xl border border-slate-100 bg-slate-50 p-6">
+                                <div class="flex items-center justify-between">
+                                    <p class="text-sm font-semibold text-slate-700">Sessions by track</p>
+                                    <span class="text-xs font-semibold text-slate-500">Planned</span>
+                                </div>
+                                <div class="mt-4">
+                                    <canvas id="trackMixChart" height="180" class="w-full max-w-full"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="rounded-3xl border border-slate-100 bg-slate-50 p-6">
+                                <div class="flex items-center justify-between">
+                                    <p class="text-sm font-semibold text-slate-700">Networking goals</p>
+                                    <span class="text-xs font-semibold text-slate-500">This week</span>
+                                </div>
+                                <div class="mt-4">
+                                    <canvas id="networkingProgressChart" height="180" class="w-full max-w-full"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="rounded-3xl border border-slate-100 bg-slate-50 p-6">
+                                <div class="flex items-center justify-between">
+                                    <p class="text-sm font-semibold text-slate-700">Learning radar</p>
+                                    <span class="text-xs font-semibold text-slate-500">Balance</span>
+                                </div>
+                                <div class="mt-4">
+                                    <canvas id="learningRadarChart" height="180" class="w-full max-w-full"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="rounded-3xl border border-slate-100 bg-slate-50 p-6">
+                                <div class="flex items-center justify-between">
+                                    <p class="text-sm font-semibold text-slate-700">Interest mix</p>
+                                    <span class="text-xs font-semibold text-slate-500">Saved</span>
+                                </div>
+                                <div class="mt-4">
+                                    <canvas id="interestPolarChart" height="180" class="w-full max-w-full"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Schedule & Cards -->
                     <div class="grid xl:grid-cols-3 gap-6">
                         <div class="xl:col-span-2 bg-white rounded-3xl p-6 shadow border border-slate-100">
@@ -347,55 +403,84 @@
 
             if (!sidebar || !backdrop) return;
 
+            const state = {
+                hiddenClass: '-translate-x-full'
+            };
+            sidebar.dataset.state = breakpoint.matches ? 'desktop' : 'closed';
+
             const lockScroll = () => document.documentElement.classList.add('overflow-hidden');
             const unlockScroll = () => document.documentElement.classList.remove('overflow-hidden');
+            const showBackdrop = () => backdrop.classList.remove('opacity-0', 'pointer-events-none');
+            const hideBackdrop = () => backdrop.classList.add('opacity-0', 'pointer-events-none');
+
+            const applyDirectionLayout = (dir = document.documentElement.getAttribute('dir') || 'ltr') => {
+                state.hiddenClass = dir === 'rtl' ? 'translate-x-full' : '-translate-x-full';
+                sidebar.classList.remove('-translate-x-full', 'translate-x-full');
+                if (!breakpoint.matches && sidebar.dataset.state !== 'open') {
+                    sidebar.classList.add(state.hiddenClass);
+                }
+            };
 
             const openSidebar = () => {
                 if (breakpoint.matches) return;
-                sidebar.classList.remove('-translate-x-full');
-                backdrop.classList.remove('opacity-0', 'pointer-events-none');
+                sidebar.dataset.state = 'open';
+                sidebar.classList.remove(state.hiddenClass, 'hidden');
+                showBackdrop();
                 lockScroll();
             };
 
             const closeSidebar = () => {
                 if (breakpoint.matches) {
-                    sidebar.classList.remove('-translate-x-full');
-                    backdrop.classList.add('opacity-0', 'pointer-events-none');
+                    sidebar.dataset.state = 'desktop';
+                    sidebar.classList.remove('-translate-x-full', 'translate-x-full');
+                    hideBackdrop();
                     unlockScroll();
                     return;
                 }
-                sidebar.classList.add('-translate-x-full');
-                backdrop.classList.add('opacity-0', 'pointer-events-none');
+                sidebar.dataset.state = 'closed';
+                sidebar.classList.add(state.hiddenClass);
+                hideBackdrop();
                 unlockScroll();
             };
 
             openers.forEach(btn => btn.addEventListener('click', openSidebar));
-            [...closers, backdrop].forEach(el => el?.addEventListener('click', closeSidebar));
+            closers.forEach(el => el?.addEventListener('click', closeSidebar));
+            backdrop.addEventListener('click', closeSidebar);
             document.addEventListener('keydown', evt => {
                 if (evt.key === 'Escape') closeSidebar();
             });
 
             const handleBreakpoint = event => {
                 if (event.matches) {
-                    sidebar.classList.remove('-translate-x-full');
-                    backdrop.classList.add('opacity-0', 'pointer-events-none');
+                    sidebar.dataset.state = 'desktop';
+                    sidebar.classList.remove('-translate-x-full', 'translate-x-full');
+                    hideBackdrop();
                     unlockScroll();
-                } else {
-                    sidebar.classList.add('-translate-x-full');
-                    backdrop.classList.add('opacity-0', 'pointer-events-none');
+                } else if (sidebar.dataset.state !== 'open') {
+                    sidebar.dataset.state = 'closed';
+                    sidebar.classList.add(state.hiddenClass);
+                    hideBackdrop();
                 }
             };
 
+            applyDirectionLayout();
             handleBreakpoint(breakpoint);
             breakpoint.addEventListener('change', handleBreakpoint);
+
+            document.addEventListener('directionchange', (event) => {
+                applyDirectionLayout(event?.detail?.dir);
+                closeSidebar();
+            });
         });
     </script>
     <script>
         // Engagement chart visualization
         document.addEventListener('DOMContentLoaded', () => {
-            const ctx = document.getElementById('engagementChart');
-            if (ctx && window.Chart) {
-                new Chart(ctx, {
+            if (!window.Chart) return;
+
+            const engagementCanvas = document.getElementById('engagementChart');
+            if (engagementCanvas) {
+                new Chart(engagementCanvas, {
                     type: 'line',
                     data: {
                         labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -436,6 +521,125 @@
                             x: {
                                 grid: { display: false },
                                 ticks: { color: '#475569' }
+                            }
+                        }
+                    }
+                });
+            }
+
+            const baseLegend = { align: 'end', labels: { usePointStyle: true, color: '#475569' } };
+            const baseGrid = { color: 'rgba(148,163,184,0.2)' };
+            const baseTicks = { color: '#475569' };
+
+            const trackMixCanvas = document.getElementById('trackMixChart');
+            if (trackMixCanvas) {
+                new Chart(trackMixCanvas, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['AI & ML', 'Cloud', 'Security', 'Web', 'Leadership'],
+                        datasets: [
+                            {
+                                data: [7, 5, 3, 4, 2],
+                                backgroundColor: ['#6366f1', '#0ea5e9', '#10b981', '#f59e0b', '#a78bfa'],
+                                borderColor: 'rgba(255,255,255,0.9)',
+                                borderWidth: 2
+                            }
+                        ]
+                    },
+                    options: {
+                        plugins: { legend: baseLegend },
+                        cutout: '65%'
+                    }
+                });
+            }
+
+            const networkingProgressCanvas = document.getElementById('networkingProgressChart');
+            if (networkingProgressCanvas) {
+                new Chart(networkingProgressCanvas, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+                        datasets: [
+                            {
+                                label: 'Goal',
+                                data: [2, 2, 2, 2, 2],
+                                backgroundColor: 'rgba(99,102,241,0.25)',
+                                borderColor: '#6366f1',
+                                borderWidth: 1,
+                                borderRadius: 10
+                            },
+                            {
+                                label: 'Actual',
+                                data: [1, 2, 1, 3, 2],
+                                backgroundColor: 'rgba(14,165,233,0.25)',
+                                borderColor: '#0ea5e9',
+                                borderWidth: 1,
+                                borderRadius: 10
+                            }
+                        ]
+                    },
+                    options: {
+                        plugins: { legend: baseLegend },
+                        scales: {
+                            y: { beginAtZero: true, grid: baseGrid, ticks: baseTicks },
+                            x: { grid: { display: false }, ticks: baseTicks }
+                        }
+                    }
+                });
+            }
+
+            const learningRadarCanvas = document.getElementById('learningRadarChart');
+            if (learningRadarCanvas) {
+                new Chart(learningRadarCanvas, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Keynotes', 'Workshops', 'Networking', 'Expo', '1:1s'],
+                        datasets: [
+                            {
+                                label: 'Focus',
+                                data: [70, 85, 55, 40, 35],
+                                backgroundColor: 'rgba(99,102,241,0.15)',
+                                borderColor: '#6366f1',
+                                borderWidth: 2,
+                                pointBackgroundColor: '#6366f1'
+                            }
+                        ]
+                    },
+                    options: {
+                        plugins: { legend: baseLegend },
+                        scales: {
+                            r: {
+                                angleLines: { color: 'rgba(148,163,184,0.25)' },
+                                grid: { color: 'rgba(148,163,184,0.2)' },
+                                pointLabels: { color: '#475569' },
+                                ticks: { backdropColor: 'transparent', color: '#64748b' }
+                            }
+                        }
+                    }
+                });
+            }
+
+            const interestPolarCanvas = document.getElementById('interestPolarChart');
+            if (interestPolarCanvas) {
+                new Chart(interestPolarCanvas, {
+                    type: 'polarArea',
+                    data: {
+                        labels: ['AI', 'Cloud', 'Security', 'Design', 'Startups'],
+                        datasets: [
+                            {
+                                data: [8, 6, 4, 5, 3],
+                                backgroundColor: ['rgba(99,102,241,0.35)', 'rgba(14,165,233,0.35)', 'rgba(16,185,129,0.35)', 'rgba(245,158,11,0.35)', 'rgba(167,139,250,0.35)'],
+                                borderColor: ['#6366f1', '#0ea5e9', '#10b981', '#f59e0b', '#a78bfa'],
+                                borderWidth: 1
+                            }
+                        ]
+                    },
+                    options: {
+                        plugins: { legend: baseLegend },
+                        scales: {
+                            r: {
+                                grid: { color: 'rgba(148,163,184,0.2)' },
+                                ticks: { backdropColor: 'transparent', color: '#64748b' }
                             }
                         }
                     }

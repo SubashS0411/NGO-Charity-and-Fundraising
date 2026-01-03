@@ -267,22 +267,76 @@
             const sidebar = document.getElementById('sidebar');
             const backdrop = document.getElementById('sidebar-backdrop');
             const toggleBtn = document.getElementById('sidebar-toggle');
+            const breakpoint = window.matchMedia('(min-width: 768px)');
 
-            if (sidebar && toggleBtn) {
-                toggleBtn.addEventListener('click', () => {
-                    sidebar.classList.toggle('hidden');
-                    sidebar.classList.toggle('-translate-x-full');
-                    if (backdrop) backdrop.classList.toggle('hidden');
-                });
+            if (!sidebar || !toggleBtn) return;
 
-                if (backdrop) {
-                    backdrop.addEventListener('click', () => {
-                        sidebar.classList.add('hidden');
-                        sidebar.classList.add('-translate-x-full');
-                        backdrop.classList.add('hidden');
-                    });
+            const state = { hiddenClass: '-translate-x-full' };
+            sidebar.dataset.state = breakpoint.matches ? 'desktop' : 'closed';
+
+            const applyDirectionLayout = (dir = document.documentElement.getAttribute('dir') || 'ltr') => {
+                state.hiddenClass = dir === 'rtl' ? 'translate-x-full' : '-translate-x-full';
+                sidebar.classList.remove('-translate-x-full', 'translate-x-full');
+                if (!breakpoint.matches && sidebar.dataset.state !== 'open') {
+                    sidebar.classList.add(state.hiddenClass);
                 }
-            }
+            };
+
+            const showBackdrop = () => backdrop?.classList.remove('hidden');
+            const hideBackdrop = () => backdrop?.classList.add('hidden');
+
+            const openSidebar = () => {
+                if (breakpoint.matches) return;
+                sidebar.dataset.state = 'open';
+                sidebar.classList.remove(state.hiddenClass, 'hidden');
+                showBackdrop();
+            };
+
+            const closeSidebar = () => {
+                if (breakpoint.matches) {
+                    sidebar.dataset.state = 'desktop';
+                    sidebar.classList.remove('-translate-x-full', 'translate-x-full', 'hidden');
+                    hideBackdrop();
+                    return;
+                }
+                sidebar.dataset.state = 'closed';
+                sidebar.classList.add(state.hiddenClass);
+                hideBackdrop();
+            };
+
+            toggleBtn.addEventListener('click', () => {
+                if (sidebar.dataset.state === 'open') {
+                    closeSidebar();
+                } else {
+                    openSidebar();
+                }
+            });
+
+            backdrop?.addEventListener('click', closeSidebar);
+            document.addEventListener('keydown', evt => {
+                if (evt.key === 'Escape') closeSidebar();
+            });
+
+            const handleBreakpoint = event => {
+                if (event.matches) {
+                    sidebar.dataset.state = 'desktop';
+                    sidebar.classList.remove('-translate-x-full', 'translate-x-full', 'hidden');
+                    hideBackdrop();
+                } else if (sidebar.dataset.state !== 'open') {
+                    sidebar.dataset.state = 'closed';
+                    sidebar.classList.add(state.hiddenClass);
+                    hideBackdrop();
+                }
+            };
+
+            applyDirectionLayout();
+            handleBreakpoint(breakpoint);
+            breakpoint.addEventListener('change', handleBreakpoint);
+
+            document.addEventListener('directionchange', (event) => {
+                applyDirectionLayout(event?.detail?.dir);
+                closeSidebar();
+            });
         });
     </script>
 </body>
