@@ -27,202 +27,243 @@
     </script>
 </head>
 
-<body class="font-sans bg-night text-gray-100 antialiased min-h-screen relative overflow-hidden pt-32 pb-16" data-nav-transparent="false" data-nav-theme="dark">
+<div class="min-h-screen flex">
+    <!-- Left Panel: Branding & Education (Dark) -->
+    <div class="hidden lg:flex lg:w-1/2 flex-col justify-between bg-night relative overflow-hidden p-12 lg:p-16">
+        <!-- Background Effects -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div
+                class="absolute inset-x-0 top-0 h-full bg-gradient-to-b from-orchid/20 via-transparent to-transparent blur-3xl opacity-50">
+            </div>
+            <div class="absolute -start-24 top-24 w-72 h-72 rounded-full bg-blush/10 blur-[140px]"></div>
+            <div class="absolute -end-32 bottom-16 w-96 h-96 rounded-full bg-indigo-500/10 blur-[160px]"></div>
+            <div class="absolute inset-0 opacity-10"
+                style="background-image: radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0); background-size: 44px 44px;">
+            </div>
+        </div>
 
-    <div class="absolute inset-0">
-        <div class="absolute inset-x-0 top-0 h-72 bg-gradient-to-b from-orchid/30 to-transparent blur-3xl"></div>
-        <div class="absolute -start-24 top-24 w-72 h-72 rounded-full bg-blush/20 blur-[140px]"></div>
-        <div class="absolute -end-32 bottom-16 w-96 h-96 rounded-full bg-indigo-500/20 blur-[160px]"></div>
-        <div class="absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0); background-size: 44px 44px;"></div>
-    </div>
+        <!-- Header -->
+        <div class="relative z-10">
+            <div
+                class="inline-flex items-center gap-3 text-xs tracking-[0.35em] uppercase text-blush font-semibold bg-white/5 border border-white/10 rounded-full px-5 py-2 mb-8 w-fit">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Early access passes live
+            </div>
+            <p class="text-sm uppercase tracking-[0.55em] text-gray-400 mb-4">Create your profile</p>
+            <h1 class="text-5xl font-black leading-tight text-white mb-6">Launch your TechSummit universe</h1>
+            <p class="text-lg text-gray-400 max-w-lg">A single profile unlocks workshops, mentor matchmaking, and
+                backstage content. Build your signal once and sync it across every experience.</p>
+        </div>
 
-    <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pb-16">
-        <div class="grid lg:grid-cols-12 gap-12 items-center min-h-[calc(100vh-9rem)]">
-            <section class="lg:col-span-5 space-y-8">
-                <div class="inline-flex items-center gap-3 text-xs tracking-[0.35em] uppercase text-blush font-semibold bg-white/5 border border-white/10 rounded-full px-5 py-2">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Early access passes live
+        <!-- Features & Stats -->
+        <div class="relative z-10 space-y-10 mt-8">
+            <div class="space-y-5">
+                <div class="flex items-start gap-4">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-blush flex-shrink-0">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-white">Modular badge design</p>
+                        <p class="text-sm text-gray-400">Upload once and auto-generate on-site credentials.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-blush flex-shrink-0">
+                        <i class="fas fa-people-group"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-white">Curated cohorts</p>
+                        <p class="text-sm text-gray-400">We slot you into meetups aligned with your goals.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-6 border-t border-white/10 pt-10">
+                <div>
+                    <p class="text-3xl font-black text-white">5k+</p>
+                    <p class="mt-2 text-[10px] uppercase tracking-[0.2em] text-gray-500">Creators</p>
                 </div>
                 <div>
-                    <p class="text-sm uppercase tracking-[0.55em] text-gray-400 mb-3">Create your profile</p>
-                    <h1 class="text-4xl sm:text-5xl font-black leading-tight text-white">Launch your TechSummit universe</h1>
+                    <p class="text-3xl font-black text-white">78%+</p>
+                    <p class="mt-2 text-[10px] uppercase tracking-[0.2em] text-gray-500">First timers</p>
                 </div>
-                <p class="text-lg text-gray-300">A single profile unlocks workshops, mentor matchmaking, and backstage content. Build your signal once and sync it across every experience.</p>
-                <div class="space-y-5">
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-blush">
-                            <i class="fas fa-layer-group"></i>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-white">Modular badge design</p>
-                            <p class="text-sm text-gray-400">Upload once and auto-generate on-site credentials.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-blush">
-                            <i class="fas fa-people-group"></i>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-white">Curated cohorts</p>
-                            <p class="text-sm text-gray-400">We slot you into meetups aligned with your goals.</p>
-                        </div>
-                    </div>
+                <div>
+                    <p class="text-3xl font-black text-white">24+</p>
+                    <p class="mt-2 text-[10px] uppercase tracking-[0.2em] text-gray-500">Countries</p>
                 </div>
-                <div class="grid grid-cols-3 gap-4">
-                    <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-center">
-                        <p class="text-3xl font-bold text-white">5k+</p>
-                        <p class="text-xs uppercase tracking-[0.3em] text-gray-400 mt-1">Creators</p>
-                    </div>
-                    <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-center">
-                        <p class="text-3xl font-bold text-white">78%</p>
-                        <p class="text-xs uppercase tracking-[0.3em] text-gray-400 mt-1">First timers</p>
-                    </div>
-                    <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-center">
-                        <p class="text-3xl font-bold text-white">24</p>
-                        <p class="text-xs uppercase tracking-[0.3em] text-gray-400 mt-1">Countries</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="lg:col-span-7">
-                <div class="relative bg-white rounded-[32px] p-10 shadow-2xl border border-white/60 text-gray-900 overflow-hidden">
-                    <div class="absolute -top-16 end-12 w-40 h-40 bg-blush/20 rounded-full blur-3xl"></div>
-                    <div class="relative">
-                        <div class="flex items-center justify-between mb-8">
-                            <div>
-                                <p class="text-xs tracking-[0.35em] uppercase text-gray-400">Step 1 of 2</p>
-                                <p class="text-2xl font-semibold mt-1">Create your account</p>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-green-500"></span>
-                                <p class="text-sm text-gray-500">Secure onboarding</p>
-                            </div>
-                        </div>
-                        <div class="h-2 w-full rounded-full bg-gray-100 mb-8">
-                            <div class="h-full w-1/2 rounded-full bg-gradient-to-r from-orchid to-blush"></div>
-                        </div>
-                        <form id="signup-form" data-native-handler="true" class="space-y-5">
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label for="firstName" class="block text-sm font-semibold mb-2">First name</label>
-                                    <div class="relative">
-                                        <i class="fas fa-user text-gray-400 absolute start-4 top-1/2 -translate-y-1/2"></i>
-                                        <input id="firstName" name="firstName" type="text" required class="w-full border border-gray-200 rounded-2xl py-3 ps-12 pe-4 text-gray-900 focus:ring-2 focus:ring-fuchsia-500 focus:border-fuchsia-500 placeholder-gray-400" placeholder="Alex">
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="lastName" class="block text-sm font-semibold mb-2">Last name</label>
-                                    <div class="relative">
-                                        <i class="fas fa-user text-gray-400 absolute start-4 top-1/2 -translate-y-1/2"></i>
-                                        <input id="lastName" name="lastName" type="text" required class="w-full border border-gray-200 rounded-2xl py-3 ps-12 pe-4 text-gray-900 focus:ring-2 focus:ring-fuchsia-500 focus:border-fuchsia-500 placeholder-gray-400" placeholder="Rivera">
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-semibold mb-2">Work email</label>
-                                <div class="relative">
-                                    <i class="fas fa-envelope text-gray-400 absolute start-4 top-1/2 -translate-y-1/2"></i>
-                                    <input id="email" name="email" type="email" autocomplete="email" required class="w-full border border-gray-200 rounded-2xl py-3 ps-12 pe-4 text-gray-900 focus:ring-2 focus:ring-fuchsia-500 focus:border-fuchsia-500 placeholder-gray-400" placeholder="you@company.com">
-                                </div>
-                            </div>
-                            <div>
-                                <label for="role" class="block text-sm font-semibold mb-2">Focus area</label>
-                                <div class="relative">
-                                    <i class="fas fa-briefcase text-gray-400 absolute start-4 top-1/2 -translate-y-1/2"></i>
-                                    <select id="role" name="role" class="w-full border border-gray-200 rounded-2xl py-3 ps-12 pe-4 text-gray-900 focus:ring-2 focus:ring-fuchsia-500 focus:border-fuchsia-500 bg-white">
-                                        <option>Engineering leader</option>
-                                        <option>Product builder</option>
-                                        <option>Founder</option>
-                                        <option>Designer</option>
-                                        <option>Student</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label for="password" class="block text-sm font-semibold mb-2">Password</label>
-                                    <div class="relative">
-                                        <i class="fas fa-lock text-gray-400 absolute start-4 top-1/2 -translate-y-1/2"></i>
-                                        <input id="password" name="password" type="password" autocomplete="new-password" required class="w-full border border-gray-200 rounded-2xl py-3 ps-12 pe-12 text-gray-900 focus:ring-2 focus:ring-fuchsia-500 focus:border-fuchsia-500 placeholder-gray-400" placeholder="••••••••">
-                                        <button type="button" aria-label="Toggle password visibility" class="absolute inset-y-0 end-0 pe-4 text-gray-400 hover:text-gray-600" onclick="const input = document.getElementById('password'); input.type = input.type === 'password' ? 'text' : 'password';">
-                                            <i class="far fa-eye"></i>
-                                        </button>
-                                    </div>
-                                    <p class="text-xs text-gray-400 mt-2">8+ chars, mix of letters & symbols.</p>
-                                </div>
-                                <div>
-                                    <label for="confirmPassword" class="block text-sm font-semibold mb-2">Confirm password</label>
-                                    <div class="relative">
-                                        <i class="fas fa-lock text-gray-400 absolute start-4 top-1/2 -translate-y-1/2"></i>
-                                        <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" required class="w-full border border-gray-200 rounded-2xl py-3 ps-12 pe-4 text-gray-900 focus:ring-2 focus:ring-fuchsia-500 focus:border-fuchsia-500 placeholder-gray-400" placeholder="••••••••">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <input id="terms" name="terms" type="checkbox" required class="w-4 h-4 mt-1 rounded text-fuchsia-600 focus:ring-fuchsia-500 border-gray-300">
-                                <label for="terms" class="text-sm text-gray-600">I agree to the <a href="#" class="text-fuchsia-600 font-semibold hover:underline">Community Charter</a> and <a href="#" class="text-fuchsia-600 font-semibold hover:underline">Privacy Policy</a>.</label>
-                            </div>
-                            <button type="submit" class="w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orchid to-blush text-white font-semibold py-3 shadow-lg shadow-fuchsia-500/30 hover:opacity-90 transition">
-                                <i class="fas fa-user-plus"></i> Create profile
-                            </button>
-                        </form>
-                        <div class="mt-6">
-                            <div class="relative">
-                                <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-gray-100"></div></div>
-                                <div class="relative flex justify-center text-xs font-semibold text-gray-400 uppercase tracking-[0.4em]">Or continue with</div>
-                            </div>
-                            <div class="mt-6 grid grid-cols-2 gap-3">
-                                <button class="flex items-center justify-center gap-3 border border-gray-200 rounded-2xl py-2.5 text-sm font-semibold text-gray-600 hover:bg-gray-50 transition">
-                                    <i class="fab fa-google text-lg text-red-500"></i> Google
-                                </button>
-                                <button class="flex items-center justify-center gap-3 border border-gray-200 rounded-2xl py-2.5 text-sm font-semibold text-gray-600 hover:bg-gray-50 transition">
-                                    <i class="fab fa-github text-lg text-gray-800"></i> GitHub
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            </div>
         </div>
-    </main>
 
-    <script src="js/rtl-toggle.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const form = document.getElementById('signup-form');
-            if (form) {
-                form.addEventListener('submit', function (e) {
-                    e.preventDefault();
+        <!-- Footer -->
+        <div class="relative z-10 text-xs text-gray-500 pt-8">
+            &copy; 2025 TechSummit. Secure Onboarding.
+        </div>
+    </div>
 
-                    const password = document.getElementById('password').value;
-                    const confirmPassword = document.getElementById('confirmPassword').value;
+    <!-- Right Panel: Form (Light) -->
+    <div
+        class="w-full lg:w-1/2 flex flex-col justify-center items-center bg-white p-8 sm:p-12 lg:p-16 relative overflow-y-auto max-h-screen">
+        <!-- Mobile Header -->
+        <div class="lg:hidden w-full flex justify-between items-center mb-10">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-white font-bold text-lg">
+                    TS</div>
+                <span class="font-bold text-xl text-gray-900">TechSummit</span>
+            </a>
+        </div>
 
-                    if (password !== confirmPassword) {
-                        alert('The passwords do not match.');
-                        return;
-                    }
+        <div class="w-full max-w-md space-y-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 font-display">Create account</h2>
+                    <p class="mt-2 text-gray-500 text-sm">Join the ecosystem today.</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    <p class="text-xs font-medium text-gray-500 uppercase tracking-wider">Secure</p>
+                </div>
+            </div>
 
-                    if (password.length < 8) {
-                        alert('Use at least 8 characters.');
-                        return;
-                    }
+            <form id="signup-form" data-native-handler="true" class="space-y-5">
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                        <label for="firstName" class="text-sm font-medium text-gray-700">First name</label>
+                        <input id="firstName" name="firstName" type="text" required
+                            class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 focus:bg-white focus:border-orchid focus:ring-2 focus:ring-orchid/20 outline-none transition placeholder-gray-400"
+                            placeholder="Alex">
+                    </div>
+                    <div class="space-y-1">
+                        <label for="lastName" class="text-sm font-medium text-gray-700">Last name</label>
+                        <input id="lastName" name="lastName" type="text" required
+                            class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 focus:bg-white focus:border-orchid focus:ring-2 focus:ring-orchid/20 outline-none transition placeholder-gray-400"
+                            placeholder="Rivera">
+                    </div>
+                </div>
 
-                    const btn = form.querySelector('button[type="submit"]');
-                    const original = btn.innerHTML;
-                    btn.disabled = true;
-                    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating profile';
+                <div class="space-y-1">
+                    <label for="email" class="text-sm font-medium text-gray-700">Work email</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required
+                        class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 focus:bg-white focus:border-orchid focus:ring-2 focus:ring-orchid/20 outline-none transition placeholder-gray-400"
+                        placeholder="you@company.com">
+                </div>
 
+                <div class="space-y-1">
+                    <label for="role" class="text-sm font-medium text-gray-700">Focus area</label>
+                    <div class="relative">
+                        <i
+                            class="fas fa-chevron-down absolute end-4 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+                        <select id="role" name="role"
+                            class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 focus:bg-white focus:border-orchid focus:ring-2 focus:ring-orchid/20 outline-none transition appearance-none cursor-pointer">
+                            <option>Engineering leader</option>
+                            <option>Product builder</option>
+                            <option>Founder</option>
+                            <option>Designer</option>
+                            <option>Student</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                        <label for="password" class="text-sm font-medium text-gray-700">Password</label>
+                        <div class="relative">
+                            <input id="password" name="password" type="password" autocomplete="new-password" required
+                                class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 pe-10 text-sm text-gray-900 focus:bg-white focus:border-orchid focus:ring-2 focus:ring-orchid/20 outline-none transition placeholder-gray-400"
+                                placeholder="••••••••">
+                            <button type="button" aria-label="Toggle password visibility"
+                                class="absolute inset-y-0 end-0 px-3 text-gray-400 hover:text-gray-600"
+                                onclick="const input = document.getElementById('password'); input.type = input.type === 'password' ? 'text' : 'password';">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <label for="confirmPassword" class="text-sm font-medium text-gray-700">Confirm</label>
+                        <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password"
+                            required
+                            class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 focus:bg-white focus:border-orchid focus:ring-2 focus:ring-orchid/20 outline-none transition placeholder-gray-400"
+                            placeholder="••••••••">
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-3 pt-2">
+                    <input id="terms" name="terms" type="checkbox" required
+                        class="w-4 h-4 mt-1 rounded text-orchid focus:ring-orchid border-gray-300">
+                    <label for="terms" class="text-sm text-gray-500">I agree to the <a href="#"
+                            class="text-black font-semibold hover:underline">Community Charter</a> and <a href="#"
+                            class="text-black font-semibold hover:underline">Privacy Policy</a>.</label>
+                </div>
+
+                <button type="submit"
+                    class="w-full rounded-xl bg-gradient-to-r from-orchid to-blush px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orchid/30 hover:shadow-xl hover:opacity-95 hover:-translate-y-0.5 transition-all duration-300">
+                    Create profile
+                </button>
+            </form>
+
+            <div class="relative flex items-center gap-4 py-4">
+                <div class="h-px flex-1 bg-gray-200"></div>
+                <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">or continue with</span>
+                <div class="h-px flex-1 bg-gray-200"></div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+                <button
+                    class="flex items-center justify-center gap-3 rounded-xl border border-gray-200 bg-white py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition">
+                    <i class="fab fa-google text-lg text-red-500"></i> Google
+                </button>
+                <button
+                    class="flex items-center justify-center gap-3 rounded-xl border border-gray-200 bg-white py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition">
+                    <i class="fab fa-github text-lg text-gray-800"></i> GitHub
+                </button>
+            </div>
+
+            <p class="text-center text-sm text-gray-500 pt-2">
+                Already have an account?
+                <a href="login.html" class="font-bold text-black hover:underline">Log in</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script src="js/rtl-toggle.js"></script>
+<script src="js/main.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('signup-form');
+        if (form) {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+
+                if (password !== confirmPassword) {
+                    alert('The passwords do not match.');
+                    return;
+                }
+
+                if (password.length < 8) {
+                    alert('Use at least 8 characters.');
+                    return;
+                }
+
+                const btn = form.querySelector('button[type="submit"]');
+                const original = btn.innerHTML;
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating profile';
+
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-check"></i> Profile ready';
                     setTimeout(() => {
-                        btn.innerHTML = '<i class="fas fa-check"></i> Profile ready';
-                        setTimeout(() => {
-                            btn.disabled = false;
-                            btn.innerHTML = original;
-                        }, 1400);
-                    }, 1800);
-                });
-            }
-        });
-    </script>
+                        btn.disabled = false;
+                        btn.innerHTML = original;
+                    }, 1400);
+                }, 1800);
+            });
+        }
+    });
+</script>
 </body>
 
 </html>

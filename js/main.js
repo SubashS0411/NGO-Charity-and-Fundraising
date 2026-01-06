@@ -670,7 +670,7 @@ function initCounters() {
                         counter.innerText = Math.ceil(current);
                         requestAnimationFrame(updateCounter);
                     } else {
-                        counter.innerText = target;
+                        counter.innerText = target + '+';
                     }
                 };
 

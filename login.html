@@ -28,144 +28,134 @@
     </script>
 </head>
 
-<body class="font-sans bg-midnight text-gray-100 antialiased min-h-screen relative overflow-hidden pt-32 pb-20" data-nav-transparent="false" data-nav-theme="dark">
-    <div class="absolute inset-0 pointer-events-none">
-        <div class="absolute inset-x-0 top-0 h-80 bg-gradient-to-b from-pulse/40 via-transparent to-transparent blur-3xl"></div>
-        <div class="absolute -end-32 top-16 w-80 h-80 bg-bloom/25 blur-[160px]"></div>
-        <div class="absolute -start-28 bottom-24 w-96 h-96 bg-emerald-400/15 blur-[180px]"></div>
-        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0); background-size: 34px 34px;"></div>
-    </div>
-
-    <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="grid lg:grid-cols-[1.1fr,0.9fr] gap-12 items-center min-h-[calc(100vh-10rem)]">
-            <section class="space-y-10">
-                <div class="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/5 px-5 py-2 text-xs font-semibold uppercase tracking-[0.4em]">
-                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Access console open
+<body class="font-sans antialiased">
+    <div class="min-h-screen flex">
+        <!-- Left Panel: Branding & Stats (Dark) -->
+        <div class="hidden lg:flex lg:w-1/2 flex-col justify-between bg-midnight relative overflow-hidden p-12 lg:p-16">
+            <!-- Background Effects -->
+            <div class="absolute inset-0 pointer-events-none">
+                <div
+                    class="absolute inset-x-0 top-0 h-full bg-gradient-to-b from-pulse/20 via-transparent to-transparent blur-3xl opacity-50">
                 </div>
-                <div class="space-y-4">
-                    <p class="text-sm uppercase tracking-[0.5em] text-gray-400">Signal deck</p>
-                    <h1 class="text-4xl sm:text-5xl font-black leading-tight text-white">Plug back into your TechSummit ecosystem</h1>
-                    <p class="text-lg text-gray-300 max-w-2xl">Command your personal agenda, approve studio invites, push announcements to your team, and sync with concierge operations in seconds.</p>
-                </div>
-
-                <div class="grid sm:grid-cols-3 gap-4">
-                    <article class="rounded-3xl border border-white/10 bg-white/5 p-5">
-                        <p class="text-4xl font-black text-white">4.2k</p>
-                        <p class="mt-1 text-xs uppercase tracking-[0.35em] text-gray-400">Live members</p>
-                    </article>
-                    <article class="rounded-3xl border border-white/10 bg-white/5 p-5">
-                        <p class="text-4xl font-black text-white">128</p>
-                        <p class="mt-1 text-xs uppercase tracking-[0.35em] text-gray-400">Global lounges</p>
-                    </article>
-                    <article class="rounded-3xl border border-white/10 bg-white/5 p-5">
-                        <p class="text-4xl font-black text-white">92%</p>
-                        <p class="mt-1 text-xs uppercase tracking-[0.35em] text-gray-400">Instant responses</p>
-                    </article>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-5 text-sm text-gray-300">
-                    <div class="rounded-3xl border border-white/10 bg-white/5 p-5 space-y-3">
-                        <p class="text-xs uppercase tracking-[0.45em] text-gray-400">What you get</p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-3"><i class="fas fa-bolt text-pulse"></i> Real-time session sync</li>
-                            <li class="flex items-center gap-3"><i class="fas fa-shield text-pulse"></i> Enforced passkey logins</li>
-                            <li class="flex items-center gap-3"><i class="fas fa-satellite-dish text-pulse"></i> Concierge escalation lane</li>
-                        </ul>
-                    </div>
-                    <div class="rounded-3xl border border-white/10 bg-white/5 p-5 space-y-3">
-                        <p class="text-xs uppercase tracking-[0.45em] text-gray-400">Need a seat?</p>
-                        <p class="text-sm text-gray-300">Haven&rsquo;t locked in a pass yet? Curate your TechSummit flow in three pulses.</p>
-                        <a href="register.html" class="inline-flex items-center gap-2 text-sm font-semibold text-pulse">Start registration <i class="fas fa-arrow-right text-xs rtl:rotate-180"></i></a>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <div class="relative overflow-hidden rounded-[36px] border border-white/60 bg-white p-10 text-gray-900 shadow-2xl">
-                    <div class="absolute -top-12 end-10 h-40 w-40 rounded-full bg-pulse/15 blur-[140px]"></div>
-                    <div class="absolute -bottom-24 -start-12 h-52 w-52 rounded-full bg-bloom/15 blur-[160px]"></div>
-                    <div class="relative space-y-8">
-                        <div class="flex items-start justify-between gap-4">
-                            <div>
-                                <p class="text-xs uppercase tracking-[0.45em] text-gray-400">Secure login</p>
-                                <p class="mt-1 text-2xl font-semibold">Welcome back, organiser</p>
-                            </div>
-                            <div class="inline-flex items-center gap-2 rounded-full border border-gray-200 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
-                                <span class="h-2 w-2 rounded-full bg-green-500"></span>
-                                Online
-                            </div>
-                        </div>
-
-                        <form id="login-form" data-native-handler="true" class="space-y-6">
-                            <div class="space-y-2">
-                                <label for="email" class="block text-sm font-semibold">Work email</label>
-                                <div class="relative">
-                                    <i class="fas fa-envelope absolute start-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                                    <input id="email" name="email" type="email" autocomplete="email" required class="w-full rounded-2xl border border-gray-200 px-4 py-3 ps-12 text-gray-900 placeholder-gray-400 focus:border-pulse focus:ring-2 focus:ring-pulse" placeholder="you@studio.com">
-                                </div>
-                            </div>
-
-                            <div class="space-y-2">
-                                <div class="flex items-center justify-between">
-                                    <label for="password" class="text-sm font-semibold">Password</label>
-                                    <button type="button" class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400 hover:text-gray-600">Use magic link</button>
-                                </div>
-                                <div class="relative">
-                                    <i class="fas fa-lock absolute start-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                                    <input id="password" name="password" type="password" autocomplete="current-password" required class="w-full rounded-2xl border border-gray-200 px-4 py-3 ps-12 pe-12 text-gray-900 placeholder-gray-400 focus:border-pulse focus:ring-2 focus:ring-pulse" placeholder="••••••••">
-                                    <button type="button" aria-label="Toggle password visibility" class="absolute inset-y-0 end-0 pe-4 text-gray-400 hover:text-gray-600" onclick="const field = document.getElementById('password'); field.type = field.type === 'password' ? 'text' : 'password';">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="flex flex-wrap items-center justify-between gap-3 text-sm text-gray-500">
-                                <label class="inline-flex items-center gap-2">
-                                    <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 rounded text-pulse focus:ring-pulse border-gray-300">
-                                    Trust this device
-                                </label>
-                                <a href="#" class="font-semibold text-pulse">Reset access</a>
-                            </div>
-
-                            <button type="submit" class="w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-pulse via-bloom to-ember py-3 text-sm font-semibold uppercase tracking-[0.35em] text-white shadow-lg shadow-pulse/30 transition hover:opacity-90">
-                                <i class="fas fa-arrow-right"></i>
-                                Launch console
-                            </button>
-                        </form>
-
-                        <div class="space-y-4 text-sm text-gray-500">
-                            <div class="relative">
-                                <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-gray-200"></div></div>
-                                <div class="relative flex justify-center">
-                                    <span class="bg-white px-4 text-xs font-semibold uppercase tracking-[0.45em] text-gray-400">Or continue with</span>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-2 gap-3">
-                                <button class="flex items-center justify-center gap-3 rounded-2xl border border-gray-200 py-2.5 text-sm font-semibold text-gray-600 transition hover:bg-gray-50"><i class="fab fa-google text-lg text-red-500"></i> Google</button>
-                                <button class="flex items-center justify-center gap-3 rounded-2xl border border-gray-200 py-2.5 text-sm font-semibold text-gray-600 transition hover:bg-gray-50"><i class="fab fa-slack text-lg text-purple-500"></i> Slack</button>
-                            </div>
-                            <p class="text-center text-sm text-gray-500">Need a new seat? <a href="signup.html" class="font-semibold text-pulse">Create an account</a></p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <section class="mt-16 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8 text-sm text-gray-300">
-            <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-                <div>
-                    <p class="text-xs uppercase tracking-[0.4em] text-gray-400">Trusted by</p>
-                    <p class="text-lg font-semibold text-white">Visionary teams coordinating across five continents</p>
-                </div>
-                <div class="flex flex-wrap items-center gap-6 text-gray-400 tracking-[0.35em] uppercase text-xs">
-                    <span>Nova Labs</span>
-                    <span>OrbitX</span>
-                    <span>Codewave</span>
-                    <span>Altitude</span>
+                <div class="absolute -end-32 top-16 w-96 h-96 bg-bloom/20 blur-[120px]"></div>
+                <div class="absolute -start-28 bottom-24 w-96 h-96 bg-emerald-400/10 blur-[140px]"></div>
+                <div class="absolute inset-0 opacity-10"
+                    style="background-image: radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0); background-size: 34px 34px;">
                 </div>
             </div>
-        </section>
-    </main>
+
+            <!-- Header -->
+            <div class="relative z-10">
+                <div
+                    class="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-white/80 mb-8 w-fit">
+                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Access console open
+                </div>
+                <p class="text-sm uppercase tracking-[0.5em] text-gray-400 mb-4">Signal deck</p>
+                <h1 class="text-5xl font-black leading-tight text-white mb-6">Plug back into your TechSummit ecosystem
+                </h1>
+                <p class="text-lg text-gray-400 max-w-lg">Command your personal agenda, approve studio invites, and sync
+                    with operations in seconds.</p>
+            </div>
+
+            <!-- Stats grid -->
+            <div class="relative z-10 grid grid-cols-3 gap-6 mt-12 border-t border-white/10 pt-12">
+                <div>
+                    <p class="text-3xl font-black text-white">4.2k+</p>
+                    <p class="mt-2 text-[10px] uppercase tracking-[0.2em] text-gray-500">Live members</p>
+                </div>
+                <div>
+                    <p class="text-3xl font-black text-white">128+</p>
+                    <p class="mt-2 text-[10px] uppercase tracking-[0.2em] text-gray-500">Global lounges</p>
+                </div>
+                <div>
+                    <p class="text-3xl font-black text-white">92%+</p>
+                    <p class="mt-2 text-[10px] uppercase tracking-[0.2em] text-gray-500">Instant responses</p>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="relative z-10 text-xs text-gray-500 pt-12">
+                &copy; 2025 TechSummit. Secure Connection.
+            </div>
+        </div>
+
+        <!-- Right Panel: Form (Light) -->
+        <div class="w-full lg:w-1/2 flex flex-col justify-center items-center bg-white p-8 sm:p-12 lg:p-24 relative">
+            <!-- Mobile Mobile Header (Visible only on small screens) -->
+            <div class="lg:hidden absolute top-8 start-8">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div
+                        class="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-white font-bold text-lg">
+                        TS</div>
+                    <span class="font-bold text-xl text-gray-900">TechSummit</span>
+                </a>
+            </div>
+
+            <div class="w-full max-w-md space-y-8">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 font-display">Welcome back</h2>
+                    <p class="mt-2 text-gray-500">Please enter your details to sign in.</p>
+                </div>
+
+                <!-- Google Auth Button -->
+                <button
+                    class="w-full flex items-center justify-center gap-3 rounded-xl border border-gray-200 bg-white px-6 py-3.5 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 hover:border-gray-300 focus:ring-4 focus:ring-gray-100">
+                    <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="h-5 w-5" alt="Google">
+                    Sign in with Google
+                </button>
+
+                <div class="relative flex items-center gap-4 py-2">
+                    <div class="h-px flex-1 bg-gray-200"></div>
+                    <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">or sign in with
+                        email</span>
+                    <div class="h-px flex-1 bg-gray-200"></div>
+                </div>
+
+                <form id="login-form" data-native-handler="true" class="space-y-6">
+                    <div class="space-y-2">
+                        <label for="email" class="text-sm font-medium text-gray-700">Email address</label>
+                        <input id="email" name="email" type="email" autocomplete="email" required
+                            class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3.5 text-sm text-gray-900 focus:bg-white focus:border-black focus:ring-2 focus:ring-black/5 outline-none transition"
+                            placeholder="you@example.com">
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <label for="password" class="text-sm font-medium text-gray-700">Password</label>
+                            <a href="#" class="text-sm font-medium text-black hover:underline">Forgot password?</a>
+                        </div>
+                        <div class="relative">
+                            <input id="password" name="password" type="password" autocomplete="current-password"
+                                required
+                                class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3.5 pe-12 text-sm text-gray-900 focus:bg-white focus:border-black focus:ring-2 focus:ring-black/5 outline-none transition"
+                                placeholder="••••••••">
+                            <button type="button"
+                                class="absolute inset-y-0 end-0 flex items-center px-4 text-gray-400 hover:text-gray-600 transition"
+                                onclick="const p = document.getElementById('password'); p.type = p.type === 'password' ? 'text' : 'password';">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <input id="remember-me" name="remember-me" type="checkbox"
+                            class="h-4 w-4 rounded border-gray-300 text-black focus:ring-black">
+                        <label for="remember-me" class="ml-2 text-sm text-gray-500">Remember me for 30 days</label>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full rounded-xl bg-black px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-black/20 hover:bg-gray-900 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+                        Sign in
+                    </button>
+                </form>
+
+                <p class="text-center text-sm text-gray-500">
+                    Don't have an account?
+                    <a href="register.html" class="font-bold text-black hover:underline">Create account</a>
+                </p>
+            </div>
+        </div>
+    </div>
 
     <script src="js/rtl-toggle.js"></script>
     <script src="js/main.js"></script>
