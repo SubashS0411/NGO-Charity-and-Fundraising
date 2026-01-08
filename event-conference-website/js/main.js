@@ -122,17 +122,35 @@ function injectNavbar() {
 
             <div id="mobile-menu" class="${themeConfig.mobileMenuWrapper}">
                 <div class="px-4 pt-2 pb-6 space-y-2">
+                    <!-- Home Accordion -->
                     <div class="space-y-1">
-                        <div class="${themeConfig.mobileSectionLabel}">Home Variants</div>
-                        <a href="index.html" class="${mobileLinkClass(['', 'index.html'])}">Home 1</a>
-                        <a href="index2.html" class="${mobileLinkClass(['index2.html'])}">Home 2</a>
+                        <button onclick="toggleMobileSubmenu('mobile-home-menu')" class="flex items-center justify-between w-full ${mobileLinkClass(['', 'index.html', 'index2.html'])}">
+                            <span>Home</span>
+                            <i id="icon-mobile-home-menu" class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                        </button>
+                        <div id="mobile-home-menu" class="hidden pl-4 space-y-1 border-l-2 border-gray-100 ml-2">
+                            <a href="index.html" class="${themeConfig.mobileSubItem}">Home 1</a>
+                            <a href="index2.html" class="${themeConfig.mobileSubItem}">Home 2</a>
+                        </div>
                     </div>
-                    <a href="user-dashboard.html" class="${mobileLinkClass(['user-dashboard.html', 'admin-dashboard.html'])}">Dashboard</a>
+
+                    <!-- Dashboard Accordion -->
+                    <div class="space-y-1">
+                        <button onclick="toggleMobileSubmenu('mobile-dashboard-menu')" class="flex items-center justify-between w-full ${mobileLinkClass(['user-dashboard.html', 'admin-dashboard.html'])}">
+                            <span>Dashboard</span>
+                            <i id="icon-mobile-dashboard-menu" class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                        </button>
+                        <div id="mobile-dashboard-menu" class="hidden pl-4 space-y-1 border-l-2 border-gray-100 ml-2">
+                            <a href="user-dashboard.html" class="${themeConfig.mobileSubItem}">User Dashboard</a>
+                            <a href="admin-dashboard.html" class="${themeConfig.mobileSubItem}">Admin Dashboard</a>
+                        </div>
+                    </div>
+
                     <a href="event-details.html" class="${mobileLinkClass(['event-details.html', 'event-details2.html'])}">Event Details</a>
                     <a href="schedule.html" class="${mobileLinkClass(['schedule.html', 'schedule2.html'])}">Schedule</a>
                     <a href="contact.html" class="${mobileLinkClass(['contact.html', 'contact2.html'])}">Contact</a>
                     <div class="${themeConfig.languageRow}">
-                        <span>Language Direction</span>
+                        <span>LTR/RTL</span>
                         <button onclick="toggleRTL(event)" class="${themeConfig.languageButton}">
                             <i class="fas fa-globe"></i>
                         </button>
@@ -184,6 +202,7 @@ function getLightThemeConfig(transparent) {
         languageRow: 'flex items-center justify-between px-3 py-2 text-gray-700 font-medium bg-gray-50 rounded-md',
         languageButton: 'text-gray-700 hover:text-blue-600 font-bold border border-gray-200 rounded px-2 py-1 text-sm bg-white',
         mobileDivider: 'border-gray-100',
+        mobileSubItem: 'block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50',
         mobileRegister: 'block w-full text-center mt-2 bg-blue-600 text-white px-5 py-3 rounded-lg font-medium hover:bg-blue-700 shadow-md',
         mobileSignup: 'block w-full text-center mt-2 bg-blue-600 text-white px-5 py-3 rounded-lg font-medium hover:bg-blue-700 shadow-md'
     };
@@ -219,6 +238,7 @@ function getDarkThemeConfig(transparent) {
         languageRow: 'flex items-center justify-between px-3 py-2 text-gray-300 font-medium bg-gray-800 rounded-md border border-gray-700',
         languageButton: 'text-gray-300 hover:text-white font-bold border border-gray-700 rounded px-2 py-1 text-sm bg-gray-900',
         mobileDivider: 'border-gray-800',
+        mobileSubItem: 'block px-3 py-2 rounded-md text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800',
         mobileRegister: 'block w-full text-center mt-2 bg-purple-600 text-white px-5 py-3 rounded-lg font-medium hover:bg-purple-700 shadow-md',
         mobileSignup: 'block w-full text-center mt-2 bg-purple-600 text-white px-5 py-3 rounded-lg font-medium hover:bg-purple-700 shadow-md'
     };
