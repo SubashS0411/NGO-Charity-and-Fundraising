@@ -234,46 +234,123 @@
                             <p class="text-sm text-blue-700">— Asha Mehta, VP of Engineering, Northstar Cloud</p>
                         </div>
 
-                        <h3 class="text-xl font-bold text-gray-900 mt-10 mb-4">Day-by-Day Immersion</h3>
-                        <div class="space-y-6">
-                            <div
-                                class="flex flex-col sm:flex-row gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
-                                <div class="sm:w-40">
-                                    <span
-                                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold">Day
-                                        1</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-900 mb-1">Vision &amp; Strategy</h4>
-                                    <p class="text-gray-600 text-sm">Morning keynotes unlock macro trends, followed by
-                                        product roadmapping clinics and executive roundtables.</p>
+                        <div class="grid lg:grid-cols-3 gap-8 mt-10">
+                            <!-- Left Column: Day Cards -->
+                            <div class="lg:col-span-2">
+                                <h3 class="text-xl font-bold text-gray-900 mb-6">Day-by-Day Immersion</h3>
+                                <div class="space-y-6">
+                                    <div
+                                        class="flex flex-col sm:flex-row gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm items-center">
+                                        <div class="flex-1 flex flex-col sm:flex-row gap-4">
+                                            <div class="sm:w-32 flex-shrink-0">
+                                                <span
+                                                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold">Day
+                                                    1</span>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-semibold text-gray-900 mb-1">Vision &amp; Strategy</h4>
+                                                <p class="text-gray-600 text-sm">Morning keynotes unlock macro trends,
+                                                    followed by product roadmapping clinics and executive roundtables.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="w-full sm:w-32 h-24 rounded-lg overflow-hidden flex-shrink-0">
+                                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=80"
+                                                alt="Strategy Session"
+                                                class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="flex flex-col sm:flex-row gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm items-center">
+                                        <div class="flex-1 flex flex-col sm:flex-row gap-4">
+                                            <div class="sm:w-32 flex-shrink-0">
+                                                <span
+                                                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm font-semibold">Day
+                                                    2</span>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-semibold text-gray-900 mb-1">Build &amp; Ship</h4>
+                                                <p class="text-gray-600 text-sm">Choose from 20+ code labs, architecture
+                                                    reviews, and design sprints hosted by cloud partners and OSS
+                                                    maintainers.</p>
+                                            </div>
+                                        </div>
+                                        <div class="w-full sm:w-32 h-24 rounded-lg overflow-hidden flex-shrink-0">
+                                            <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=400&q=80"
+                                                alt="Coding Lab"
+                                                class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="flex flex-col sm:flex-row gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm items-center">
+                                        <div class="flex-1 flex flex-col sm:flex-row gap-4">
+                                            <div class="sm:w-32 flex-shrink-0">
+                                                <span
+                                                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-sm font-semibold">Day
+                                                    3</span>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-semibold text-gray-900 mb-1">Scale &amp; Launch</h4>
+                                                <p class="text-gray-600 text-sm">Investor office hours, customer
+                                                    advisory councils, and launchpad showcases help you package your
+                                                    next big release.</p>
+                                            </div>
+                                        </div>
+                                        <div class="w-full sm:w-32 h-24 rounded-lg overflow-hidden flex-shrink-0">
+                                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80"
+                                                alt="Growth Graph"
+                                                class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div
-                                class="flex flex-col sm:flex-row gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
-                                <div class="sm:w-40">
-                                    <span
-                                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm font-semibold">Day
-                                        2</span>
+
+                            <!-- Right Column: Sidebar Widgets -->
+                            <div class="lg:col-span-1 space-y-6">
+                                <!-- Download Agenda Widget -->
+                                <div
+                                    class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-6 text-white shadow-lg relative overflow-hidden group">
+                                    <div
+                                        class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition duration-500 transform group-hover:scale-125">
+                                        <i class="fas fa-file-pdf text-8xl"></i>
+                                    </div>
+                                    <h4 class="text-xl font-bold mb-2 relative z-10">Detailed Agenda</h4>
+                                    <p class="text-gray-400 text-sm mb-6 relative z-10">Get the complete breakdown of
+                                        tracks, speakers, and workshop requirements.</p>
+                                    <button
+                                        class="w-full py-3 bg-white text-gray-900 rounded-lg font-bold hover:bg-gray-100 transition flex items-center justify-center gap-2 relative z-10">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </button>
                                 </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-900 mb-1">Build &amp; Ship</h4>
-                                    <p class="text-gray-600 text-sm">Choose from 20+ code labs, architecture reviews,
-                                        and design sprints hosted by cloud partners and OSS maintainers.</p>
+
+                                <!-- Who Should Attend Widget -->
+                                <div class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm">
+                                    <h4 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                        <i class="fas fa-users text-blue-600"></i> Who Should Attend?
+                                    </h4>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start gap-3">
+                                            <i class="fas fa-check-circle text-green-500 mt-1 flex-shrink-0"></i>
+                                            <span class="text-sm text-gray-600">CTOs & VP Engineering</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <i class="fas fa-check-circle text-green-500 mt-1 flex-shrink-0"></i>
+                                            <span class="text-sm text-gray-600">Senior Product Managers</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <i class="fas fa-check-circle text-green-500 mt-1 flex-shrink-0"></i>
+                                            <span class="text-sm text-gray-600">Lead Developers & Architects</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <i class="fas fa-check-circle text-green-500 mt-1 flex-shrink-0"></i>
+                                            <span class="text-sm text-gray-600">Startup Founders</span>
+                                        </li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div
-                                class="flex flex-col sm:flex-row gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
-                                <div class="sm:w-40">
-                                    <span
-                                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-sm font-semibold">Day
-                                        3</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-900 mb-1">Scale &amp; Launch</h4>
-                                    <p class="text-gray-600 text-sm">Investor office hours, customer advisory councils,
-                                        and launchpad showcases help you package your next big release.</p>
-                                </div>
+
+
                             </div>
                         </div>
                     </div>
@@ -462,6 +539,32 @@
                                 <span class="text-sm font-medium">Conference Begins</span>
                             </li>
                         </ul>
+                    </div>
+
+                    <!-- App Download Widget -->
+                    <div
+                        class="bg-blue-600 rounded-xl shadow-sm border border-blue-500 overflow-hidden text-white relative">
+                        <div class="absolute inset-0 bg-blue-700/50 transform -skew-y-12 translate-y-20"></div>
+                        <div class="p-6 relative z-10">
+                            <div
+                                class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-mobile-alt text-2xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl mb-2">Conference in Your Pocket</h3>
+                            <p class="text-blue-100 text-sm mb-6">Build your schedule, chat with attendees, and get live
+                                updates.</p>
+
+                            <div class="space-y-3">
+                                <button
+                                    class="w-full flex items-center justify-center gap-3 bg-white text-blue-600 py-3 rounded-lg font-bold hover:bg-blue-50 transition">
+                                    <i class="fab fa-apple text-xl"></i> App Store
+                                </button>
+                                <button
+                                    class="w-full flex items-center justify-center gap-3 bg-blue-700/50 backdrop-blur-sm text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition border border-blue-500">
+                                    <i class="fab fa-google-play text-xl"></i> Play Store
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -754,7 +857,8 @@
                         <div class="flex gap-4 bg-gray-50 border border-gray-200 rounded-2xl p-5">
                             <div
                                 class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-location-dot"></i></div>
+                                <i class="fas fa-location-dot"></i>
+                            </div>
                             <div>
                                 <p class="font-semibold text-gray-900">Venue</p>
                                 <p class="text-sm text-gray-600">Moscone Center, San Francisco &mdash; easy access via
@@ -764,7 +868,8 @@
                         <div class="flex gap-4 bg-gray-50 border border-gray-200 rounded-2xl p-5">
                             <div
                                 class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-train-subway"></i></div>
+                                <i class="fas fa-train-subway"></i>
+                            </div>
                             <div>
                                 <p class="font-semibold text-gray-900">Getting there</p>
                                 <p class="text-sm text-gray-600">We recommend public transit. Parking is limited;
@@ -774,7 +879,8 @@
                         <div class="flex gap-4 bg-gray-50 border border-gray-200 rounded-2xl p-5">
                             <div
                                 class="w-10 h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-hotel"></i></div>
+                                <i class="fas fa-hotel"></i>
+                            </div>
                             <div>
                                 <p class="font-semibold text-gray-900">Stay nearby</p>
                                 <p class="text-sm text-gray-600">Partner hotels and discounted blocks will appear in
